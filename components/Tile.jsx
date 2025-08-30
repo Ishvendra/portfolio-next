@@ -1,88 +1,60 @@
 'use client';
 
-import React, { useState, useEffect, useContext, createContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 
-const TileHoverContext = createContext({
-  isAnyTileHovered: false,
-  setIsAnyTileHovered: () => {},
-});
-
-export const TileProvider = ({ children }) => {
-  const [isAnyTileHovered, setIsAnyTileHovered] = useState(false);
-
-  return (
-    <TileHoverContext.Provider
-      value={{ isAnyTileHovered, setIsAnyTileHovered }}
-    >
-      {children}
-    </TileHoverContext.Provider>
-  );
-};
-
-const Tile = ({ idx, length, images, link }) => {
+const Tile = ({ idx, length, images, link, name }) => {
   const router = useRouter();
-  const [isHovered, setIsHovered] = useState(false);
-  const { isAnyTileHovered, setIsAnyTileHovered } =
-    useContext(TileHoverContext);
-
   const index = length - idx - 1;
-  const initialY = index * 130;
-  const blurAmount = (length - idx - 1) * 1;
-
-  const variants = {
-    initial: {
-      y: initialY,
-      x: index * 80,
-      opacity: 1,
-      filter: `blur(${blurAmount}px)`,
-    },
-    hover: {
-      y: initialY - 100,
-      filter: 'blur(0px)',
-      transition: { duration: 0.3 },
-    },
-    normal: {
-      filter: `blur(${blurAmount}px)`,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  useEffect(() => {
-    if (!isAnyTileHovered) {
-      const hoverSequence = () => {
-        const interval = setInterval(() => {
-          setTimeout(() => {
-            setIsHovered(true);
-          }, 100 * (length - idx));
-
-          setTimeout(() => {
-            setIsHovered(false);
-          }, 200 * (length - idx));
-        }, 6000);
-
-        return () => clearInterval(interval);
-      };
-
-      const cleanup = hoverSequence();
-      return cleanup;
-    }
-  }, [idx, length, isAnyTileHovered]);
-
-  const handleMouseEnter = () => {
-    setIsAnyTileHovered(true);
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsAnyTileHovered(false);
-    setIsHovered(false);
-  };
 
   const handleClick = () => {
     router.push(link);
   };
+
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const clamp01 = (n) => Math.max(0, Math.min(1, n));
+  const t = clamp01((windowWidth - 786) / (1200 - 786));
+
+  const scaleY = windowWidth < 1000 ? 1 + t * 0.5 : 0.6 + t * 0.5;
+
+  const clamp = (n, min = 0, max = 1) => Math.max(min, Math.min(max, n));
+  console.log(name);
+  const gapX = 50 + clamp((windowWidth - 500) / (1500 - 500)) * 40;
+  const xPos = index * gapX;
+
+  const yPos = index * 100 * scaleY;
+
+  const variants = {
+    initial: {
+      y: yPos,
+      x: xPos,
+      opacity: 1,
+    },
+    normal: {
+      y: yPos,
+      x: xPos,
+    },
+    hover: {
+      y: yPos - 100,
+      x: xPos,
+    },
+  };
+
+  const baseWidth = 358;
+  const baseHeight = 435;
+  const aspectRatio = baseHeight / baseWidth;
 
   return (
     <motion.div
@@ -95,17 +67,49 @@ const Tile = ({ idx, length, images, link }) => {
         width: '30%',
         height: '150px',
         cursor: 'pointer',
+        willChange: 'transform, opacity',
+        position: 'relative',
+        top: windowWidth < 1000 ? 1000 - windowWidth : 0,
       }}
-      initial='initial'
-      animate={isHovered ? 'hover' : 'normal'}
       variants={variants}
-      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handleMouseEnter}
-      onTouchEnd={handleMouseLeave}
+      initial='initial'
+      animate='normal'
+      whileHover='hover'
+      transition={{ type: 'spring', stiffness: 250, damping: 10 }}
     >
-      <img src={isHovered ? images[1] : images[0]} alt='tile' />
+      <motion.img
+        src={images[0]}
+        alt={`${name} tile`}
+        style={{
+          width: windowWidth < 1200 ? windowWidth * 0.3 : 358,
+          height: windowWidth < 1200 ? windowWidth * 0.3 * aspectRatio : 435,
+          position: 'absolute',
+          top: 0,
+          left: 0,
+        }}
+        variants={{
+          normal: { opacity: 1, zIndex: 2 },
+          hover: { opacity: 1, zIndex: 0 },
+        }}
+        transition={{ duration: 0.25, ease: 'easeInOut' }}
+      />
+
+      <motion.img
+        src={images[1]}
+        alt={`${name} tile hover`}
+        style={{
+          position: 'absolute',
+          width: windowWidth < 1200 ? windowWidth * 0.3 : 358,
+          height: windowWidth < 1200 ? windowWidth * 0.3 * aspectRatio : 435,
+          top: 0,
+          left: 0,
+        }}
+        variants={{
+          normal: { opacity: 0, zIndex: 0 },
+          hover: { opacity: 1, zIndex: 2 },
+        }}
+        transition={{ duration: 0.25, ease: 'easeInOut' }}
+      />
     </motion.div>
   );
 };

@@ -1,40 +1,55 @@
 export const projects = [
   {
-    name: 'Nuskin',
+    name: 'KSH International',
+    description:
+      'Engineered a comprehensive quality management system with a fine-grained RBAC system, real-time analytics dashboards, and optimized performance through Web Workers.',
     link: '/project-showcase/05',
-    images: ['/assets/home/tile-5.png', '/assets/home/tile-glow-5.png'],
+    images: ['/assets/home/tile-5.webp', '/assets/home/tile-glow-5.webp'],
   },
   {
     name: 'Shashvat Connect Mobile App',
+    description:
+      'Built a high-performance cross-platform ERP with real-time chat, offline-first functionality, and remote configuration, optimizing runtime performance and scalability.',
     link: '/project-showcase/04',
-    images: ['/assets/home/tile-4.png', '/assets/home/tile-glow-4.png'],
+    images: ['/assets/home/tile-4.webp', '/assets/home/tile-glow-4.webp'],
   },
+
   {
     name: 'Tour Touch CRM',
+    description:
+      'Architected and led the frontend development of a multi-tenant SaaS CRM, creating a scalable, configurable UI and a robust API layer for efficient data management.',
     link: '/project-showcase/03',
-    images: ['/assets/home/tile-3.png', '/assets/home/tile-glow-3.png'],
+    images: ['/assets/home/tile-3.webp', '/assets/home/tile-glow-3.webp'],
   },
+
   {
     name: 'Dynamic Diet CRM',
+    description:
+      'Developed a custom CRM to streamline diet-plan management and client engagement, automating workflows and providing key analytics that reduced manual effort by over 70%',
     link: '/project-showcase/02',
-    images: ['/assets/home/tile-2.png', '/assets/home/tile-glow-2.png'],
+    images: ['/assets/home/tile-2.webp', '/assets/home/tile-glow-2.webp'],
   },
   {
-    name: 'KSH',
+    name: 'Nuskin',
+    description:
+      'Implemented a micro-frontend architecture with Module Federation and developed custom CMS plugins, enabling non-technical teams to manage and adapt site workflows independently.',
     link: '/project-showcase/01',
-    images: ['/assets/home/tile-1.png', '/assets/home/tile-glow-1.png'],
+    images: ['/assets/home/tile-1.webp', '/assets/home/tile-glow-1.webp'],
   },
 ];
 
 export const socials = [
-  { name: 'Resume', link: '/' },
+  {
+    name: 'Resume',
+    link: 'https://drive.google.com/file/d/1NsQYbNDFqJVv1TzMjpJfXFfIPkDxeqrJ/view?usp=sharing',
+  },
   {
     name: 'LinkedIn',
     link: 'https://www.linkedin.com/in/ishvendra-singh-82538a1b0/',
   },
   { name: 'Email', link: 'mailto:ishvendra@gmail.com' },
   { name: 'GitHub', link: 'https://github.com/Ishvendra' },
-  { name: 'About', link: '/about' },
+  { name: 'Bio', link: '/about' },
 ];
 
 export const projectFooter = [

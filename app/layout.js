@@ -26,8 +26,8 @@ export default function RootLayout({ children }) {
     if (pathname.startsWith('/project-showcase/02')) return '_2-bg';
     if (pathname.startsWith('/project-showcase/03')) return '_3-bg';
     if (pathname.startsWith('/project-showcase/04')) return '_4-bg';
-    if (pathname === '/about') return 'red-bg';
-    return 'default-bg';
+    if (pathname === '/about') return '';
+    return '';
   };
 
   const bgClass = getBackgroundClass();
@@ -51,7 +51,12 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang='en'>
+    <html lang='en' nighteye='disabled'>
+      <head>
+        <link rel='preconnect' href='https://www.linkedin.com' />
+        <link rel='preconnect' href='https://github.com' />
+        <link rel='preconnect' href='https://drive.google.com' />
+      </head>
       <body
         className={`app-container ${bgClass} text-light ${inconsolata.className} ${nunito.className} ${notoSans.className}`}
       >

@@ -3,12 +3,14 @@
 import { useEffect, useState, useRef, use } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import projects from '../../../data/projects';
 import { projectFooter } from '../../../utils/constants';
 import ProjectCarousel from '../../../components/ProjectCarousel';
 import styles from '../../../styles/project.module.css';
 import clsx from 'clsx';
+import NotFound from '@/app/not-found';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -18,7 +20,7 @@ const ProjectShowcasePage = ({ params }) => {
   const projectIndex = projects.findIndex((p) => p.id === id);
 
   if (projectIndex === -1) {
-    notFound();
+    NotFound();
   }
 
   const router = useRouter();
@@ -35,14 +37,12 @@ const ProjectShowcasePage = ({ params }) => {
   const prevProject = projects[projectIndex - 1] || null;
   const nextProject = projects[projectIndex + 1] || null;
 
-  // Fade-in/out animation on mount
   useEffect(() => {
     setIsVisible(false);
     const timer = setTimeout(() => setIsVisible(true), 100);
     return () => clearTimeout(timer);
   }, [id]);
 
-  // Scroll masking effect
   useEffect(() => {
     const containers = [
       overviewRef.current,
@@ -71,7 +71,6 @@ const ProjectShowcasePage = ({ params }) => {
     return () => cleanups.forEach((fn) => fn && fn());
   }, [id]);
 
-  // Periodic hint animation
   useEffect(() => {
     let isMounted = true;
 
@@ -94,123 +93,131 @@ const ProjectShowcasePage = ({ params }) => {
 
   return (
     <div className={styles.container}>
-      {/* Header */}
       <header className={styles.header}>
         <p
           className={clsx(
             styles['project-title'],
-            'aesthetic',
-            'font-size-title'
+            styles.aesthetic,
+            styles['font-size-title'],
+            styles.reveal
           )}
         >
           {projectIndex + 1}. {project.title}
         </p>
-        <p className={clsx('aesthetic', styles['project-date'])}>
+        <p className={clsx(styles['aesthetic'], styles['project-date'])}>
           {project.date}
         </p>
       </header>
 
-      {/* Navigation */}
-      <nav
-        className={clsx(
-          styles.nav,
-          styles['nav-left'],
-          !prevProject && styles['disabled-nav']
-        )}
-        onClick={() =>
-          prevProject && router.push(`/project-showcase/${prevProject.id}`)
-        }
-      >
-        <p
+      <div className={styles['content-body']}>
+        <nav
           className={clsx(
-            'aesthetic',
-            styles['rotated-text'],
-            'font-size-title',
-            !prevProject && styles['disabled-btn']
+            styles.nav,
+            styles['nav-left'],
+            !prevProject && styles['disabled-nav']
           )}
+          onClick={() =>
+            prevProject && router.push(`/project-showcase/${prevProject.id}`)
+          }
         >
-          PREVIOUS
-        </p>
-      </nav>
+          <p
+            className={clsx(
+              styles['aesthetic'],
+              styles['rotated-text'],
+              styles['font-size-title'],
+              !prevProject && styles['disabled-btn']
+            )}
+          >
+            PREVIOUS
+          </p>
+        </nav>
+        <div className={styles['content-container']}>
+          <div className={styles['content-left']}>
+            <div className={styles['overview-container']} ref={overviewRef}>
+              <h2 className={clsx(styles.color, styles['font-size-title'])}>
+                Overview
+              </h2>
+              <AnimatePresence>
+                {isVisible && (
+                  <motion.div
+                    key='overview'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {project.overview}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
-      <nav
-        className={clsx(
-          styles.nav,
-          styles['nav-right'],
-          !nextProject && styles['disabled-nav']
-        )}
-        onClick={() =>
-          nextProject && router.push(`/project-showcase/${nextProject.id}`)
-        }
-      >
-        <p
-          className={clsx(
-            'aesthetic',
-            styles['rotated-text-right'],
-            'font-size-title',
-            !nextProject && styles['disabled-btn']
-          )}
-        >
-          NEXT
-        </p>
-      </nav>
-
-      {/* Content */}
-      <div className={styles['content-container']}>
-        <div className={styles['content-left']}>
-          <div className={styles['overview-container']} ref={overviewRef}>
-            <h2 className={clsx(styles.color, 'font-size-title')}>Overview</h2>
-            <AnimatePresence>
-              {isVisible && (
-                <motion.p
-                  key='overview'
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {project.overview}
-                </motion.p>
-              )}
-            </AnimatePresence>
+            <div className={clsx(styles['screenshot-container'])}>
+              <ProjectCarousel images={images} />
+            </div>
           </div>
 
-          <div className={clsx(styles['screenshot-container'])}>
-            <ProjectCarousel images={images} />
+          <div className={styles['content-right']}>
+            <div className={styles['features-container']} ref={featuresRef}>
+              <AnimatePresence>
+                {isVisible && (
+                  <motion.div
+                    key='features'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                    style={{
+                      paddingLeft: 10,
+                    }}
+                  >
+                    {project.sections}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <div className={styles['tech-stack-container']}>
+              {project.techStack.map((icon) => (
+                <div className={styles['tech-icon']} key={icon.alt}>
+                  <Image src={icon.src} alt={icon.alt} loading='lazy' />
+                  <span
+                    className={clsx(
+                      styles['icon-tooltip'],
+                      styles['aesthetic'],
+                      styles['glow-text']
+                    )}
+                  >
+                    {icon.alt}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
-        <div className={styles['content-right']}>
-          <div className={styles['features-container']} ref={featuresRef}>
-            <AnimatePresence>
-              {isVisible && (
-                <motion.div
-                  key='features'
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {project.sections}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <div className={styles['tech-stack-container']}>
-            {project.techStack.map((icon) => (
-              <div className={styles['tech-icon']} key={icon.alt}>
-                <img src={icon.src} alt={icon.alt} loading='lazy' />
-                <span className={clsx('aesthetic', styles['glow-text'])}>
-                  {icon.alt}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <nav
+          className={clsx(
+            styles.nav,
+            styles['nav-right'],
+            !nextProject && styles['disabled-nav']
+          )}
+          onClick={() =>
+            nextProject && router.push(`/project-showcase/${nextProject.id}`)
+          }
+        >
+          <p
+            className={clsx(
+              styles['aesthetic'],
+              styles['rotated-text-right'],
+              styles['font-size-title'],
+              !nextProject && styles['disabled-btn']
+            )}
+          >
+            NEXT
+          </p>
+        </nav>
       </div>
 
-      {/* Footer */}
       <footer className={styles.footer}>
         {projectFooter.map((item, index) => (
           <div className={styles.wrapper} key={index}>
@@ -219,7 +226,7 @@ const ProjectShowcasePage = ({ params }) => {
               rel='noopener noreferrer'
               aria-label={item.name}
               className={clsx(
-                'aesthetic',
+                styles['aesthetic'],
                 styles['aesthetic-links'],
                 styles['hover-shadow'],
                 styles['hover-color'],
@@ -228,7 +235,11 @@ const ProjectShowcasePage = ({ params }) => {
               )}
             >
               {[...item.name].map((char, i) => (
-                <span key={i} className='font-size-title' aria-hidden='true'>
+                <span
+                  key={i}
+                  className={styles['font-size-title']}
+                  aria-hidden='true'
+                >
                   {char}
                 </span>
               ))}
