@@ -17,11 +17,25 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  background-image: url('../public/assets/common/noise-bg.jpg');
+
+  background-size: cover;
+}
+
+@font-face {
+  font-family: 'aesthetic';
+  src: url('../public/fonts/Aesthetic-Regular.woff2') format('woff2'),
+    url('../public/fonts/Aesthetic-Regular.woff') format('woff'),
+    url('../public/fonts/Aesthetic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
@@ -39,4 +53,454 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.social-media-links {
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: 400;
+  transition: transform 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+}
+
+.social-media-links:hover {
+  transform: scale(1.2);
+  font-weight: 700;
+}
+
+.upto-link {
+  color: #ab392c;
+}
+
+.upto-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.wrapper {
+  font-size: 1vw;
+}
+
+.font-weight-700 {
+  font-weight: 700;
+}
+
+a {
+  color: #ffffff;
+  font-family: Inconsolata;
+  font-weight: 900;
+  text-decoration: none;
+  display: inline-block;
+  text-shadow: rgba(255, 255, 255, 0.66) 0px 0px 9px;
+}
+
+a:hover {
+  text-shadow: rgba(255, 255, 255, 1) 0px 0px 31px;
+}
+
+a span {
+  font-weight: 400;
+  transition: all 0.1s;
+  border-bottom: 1px solid;
+  display: inline-block;
+}
+
+.inconsolata-font {
+  font-family: 'Inconsolata';
+}
+
+a span:nth-child(2) {
+  transition-delay: 0s;
+}
+
+a span:nth-child(3) {
+  transition-delay: 0.1s;
+}
+
+a span:nth-child(4) {
+  transition-delay: 0.2s;
+}
+
+a span:nth-child(5) {
+  transition-delay: 0.3s;
+}
+
+a span:nth-child(6) {
+  transition-delay: 0.3s;
+}
+a span:nth-child(7) {
+  transition-delay: 0.3s;
+}
+a span:nth-child(8) {
+  transition-delay: 0.3s;
+}
+a span:nth-child(9) {
+  transition-delay: 0.3s;
+}
+a span:nth-child(10) {
+  transition-delay: 0.3s;
+}
+a span:nth-child(11) {
+  transition-delay: 0.3s;
+}
+a span:nth-child(12) {
+  transition-delay: 0.3s;
+}
+
+a:hover span {
+  font-weight: 900;
+  /* font-size: 28px; */
+  font-family: sans-serif;
+  text-shadow: rgba(255, 255, 255, 1) 0px 0px 31px;
+}
+
+a:hover span:nth-child(12) {
+  transition-delay: 1s;
+}
+a:hover span:nth-child(11) {
+  transition-delay: 0.9s;
+}
+a:hover span:nth-child(10) {
+  transition-delay: 0.8s;
+}
+a:hover span:nth-child(9) {
+  transition-delay: 0.7s;
+}
+a:hover span:nth-child(8) {
+  transition-delay: 0.6s;
+}
+a:hover span:nth-child(7) {
+  transition-delay: 0.5s;
+}
+a:hover span:nth-child(6) {
+  transition-delay: 0.4s;
+}
+
+a:hover span:nth-child(5) {
+  transition-delay: 0.3s;
+}
+
+a:hover span:nth-child(4) {
+  transition-delay: 0.2s;
+}
+
+a:hover span:nth-child(3) {
+  transition-delay: 0.1s;
+}
+
+a:hover span:nth-child(2) {
+  transition-delay: 0s;
+}
+
+a:hover span:nth-child(1) {
+  transition-delay: 0s;
+}
+
+a.hover-shadow:hover {
+  text-shadow: 1px 1px 0px rgb(230, 129, 116), 2px 2px 0px rgb(230, 177, 116),
+    3px 3px 0px rgb(230, 191, 116);
+}
+
+a.hover-color:hover {
+  border-color: darkmagenta;
+}
+
+a.hover-font:hover {
+  font-family: 'aesthetic', sans-serif;
+}
+
+.shimmer {
+  margin: 0 auto;
+  padding: 0 140px 0 0;
+  display: inline;
+  margin-bottom: 0;
+  text-align: center;
+  color: rgba(0, 255, 234, 0.2);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(0, 255, 234, 0.2)),
+    to(rgba(0, 255, 234, 0.2)),
+    color-stop(0.5, #fff)
+  );
+  background: -moz-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(0, 255, 234, 0.2)),
+    to(rgba(0, 255, 234, 0.2)),
+    color-stop(0.5, #fff)
+  );
+  background: gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(0, 255, 234, 0.2)),
+    to(rgba(0, 255, 234, 0.2)),
+    color-stop(0.5, #fff)
+  );
+  -webkit-background-size: 50px 100%;
+  -moz-background-size: 50px 100%;
+  background-size: 50px 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-animation-name: shimmer;
+  -moz-animation-name: shimmer;
+  animation-name: shimmer;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-color: rgba(0, 255, 234, 0.2);
+}
+
+@-moz-keyframes shimmer {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
+@-o-keyframes shimmer {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: top right;
+  }
+}
+
+/* here */
+
+.default-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.default-bg video.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+  object-fit: cover;
+}
+
+._1-bg {
+  background: #05141e;
+}
+
+._2-bg {
+  background: #14032a;
+}
+
+._3-bg {
+  background: #0b2001;
+}
+
+._4-bg {
+  background: #171a01;
+}
+
+.red-bg {
+  background: url('../public/assets/common/white-noise-bg.jpg') no-repeat center
+    center/cover;
+}
+
+code {
+  font-family: nunito, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    'Inconsolata', 'monospace', monospace;
+}
+
+.nunito-cute {
+  font-family: 'Nunito', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+  pointer-events: none;
+}
+
+.hero {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  background-size: cover;
+}
+
+.hero:after {
+  content: '';
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png');
+  height: 300%;
+  width: 300%;
+  position: fixed;
+  opacity: 0.05;
+  animation: animateGrain 8s steps(10) infinite;
+}
+
+@keyframes animateGrain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -10%);
+  }
+  20% {
+    transform: translate(-15%, -20%);
+  }
+  30% {
+    transform: translate(-5%, -10%);
+  }
+  40% {
+    transform: translate(-15%, -20%);
+  }
+
+  50% {
+    transform: translate(-5%, -10%);
+  }
+  60% {
+    transform: translate(-15%, -20%);
+  }
+  70% {
+    transform: translate(-5%, -10%);
+  }
+  80% {
+    transform: translate(-15%, -20%);
+  }
+  90% {
+    transform: translate(-5%, -10%);
+  }
+  100% {
+    transform: translate(-15%, -20%);
+  }
+}
+/* Video fallback background */
+.video-fallback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Base video styles - starts transparent */
+.bg-video {
+  opacity: 0;
+  transition: opacity 1.5s ease-in;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+  /* GPU acceleration for smooth transitions */
+  transform: translateZ(0);
+  will-change: opacity;
+}
+
+/* Loaded state - fades in */
+.bg-video.loaded {
+  opacity: 0.2;
+}
+
+/* Alternative approach with CSS animation */
+@keyframes videoFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.2;
+  }
+}
+
+.bg-video.animate-fade {
+  animation: videoFadeIn 1.5s ease-in forwards;
 }
