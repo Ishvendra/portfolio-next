@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import Tile, { TileProvider } from '../components/Tile';
 import { socials, projects } from '../utils/constants';
 import Link from 'next/link';
@@ -82,7 +83,13 @@ const Home = () => {
           </span>
         </div>
 
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 20,
+          }}
+        >
           <p
             style={{
               color: BODY_TEXT_COLOR,
@@ -207,7 +214,7 @@ const Home = () => {
           height: 150,
         }}
       >
-        <img
+        <Image
           src={Arrow}
           alt='arrow'
           height={60}

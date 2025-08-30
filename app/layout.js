@@ -3,6 +3,17 @@
 import './globals.css';
 import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
+import { Inconsolata, Nunito, Noto_Sans } from 'next/font/google';
+
+const inconsolata = Inconsolata({
+  subsets: ['latin'],
+  weight: ['200', '400', '700'],
+});
+const nunito = Nunito({ subsets: ['latin'], weight: ['200', '400', '700'] });
+const notoSans = Noto_Sans({
+  subsets: ['latin'],
+  weight: ['100', '400', '700'],
+});
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -41,10 +52,12 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang='en'>
-      <body className={`app-container ${bgClass} text-light`}>
+      <body
+        className={`app-container ${bgClass} text-light ${inconsolata.className} ${nunito.className} ${notoSans.className}`}
+      >
         {isHomePage ? (
           <>
-            <div className='hero'>
+            <div className='hero-2'>
               <div className='overlay' />
             </div>
             {shouldLoadVideo && (
