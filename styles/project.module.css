@@ -19,6 +19,11 @@
   gap: 10px;
 }
 
+.sectionTitle {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
 .content-body {
   flex-grow: 1;
   display: flex;
@@ -36,7 +41,7 @@
 
 .content-container {
   display: flex;
-  width: 100%;
+  flex-direction: row;
 }
 
 .overview-container,
@@ -289,18 +294,6 @@
   margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-  .solutions-container {
-    flex-direction: column;
-  }
-
-  .tech-stack-container {
-    width: 100%;
-    padding-top: 20px;
-    flex-direction: row;
-  }
-}
-
 .disabled-btn {
   text-decoration: line-through;
 }
@@ -468,46 +461,44 @@
   height: auto;
 }
 
-@media (min-width: 1024px) {
-  .content-container {
-    overflow: hidden;
-  }
+.content-container {
+  overflow: hidden;
+}
 
-  .content-left {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-  }
+.content-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
 
-  .overview-container {
-    overflow-y: auto;
-    padding: 20px;
-    height: 350px;
-  }
+.overview-container {
+  overflow-y: auto;
+  padding: 20px;
+  height: 350px;
+}
 
-  .screenshot-container {
-    padding: 10px;
-    min-height: 300px;
-  }
+.screenshot-container {
+  padding: 10px;
+  min-height: 300px;
+}
 
-  .content-right {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+.content-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .features-container {
-    overflow-y: auto;
-  }
+.features-container {
+  overflow-y: auto;
+}
 
-  .tech-stack-container {
-    min-height: 30px;
-    max-height: 30px;
-    padding: 20px;
-  }
+.tech-stack-container {
+  min-height: 30px;
+  max-height: 30px;
+  padding: 20px;
 }
 
 .font-weight-700 {
@@ -615,7 +606,7 @@
 .list li {
   display: flex;
   align-items: center;
-  gap: 10px; /* Adds spacing between icon and text */
+  gap: 10px;
   margin-bottom: 10px;
 }
 
@@ -777,52 +768,186 @@
 .mb-20 {
   margin-bottom: 20px;
 }
-.blur-overlay-1 {
-  position: sticky;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  pointer-events: none;
-  background: transparent;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  mask-image: linear-gradient(to top, black 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
-  transition: opacity 0.3s ease-out;
-  /* z-index: 10; */
-}
-.blur-overlay-2 {
-  position: sticky;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  pointer-events: none;
-  background: transparent;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  mask-image: linear-gradient(to top, black 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
-  transition: opacity 0.3s ease-out;
-  /* z-index: 10; */
-}
-.blur-overlay-3 {
-  position: sticky;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  pointer-events: none;
-  background: transparent;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  mask-image: linear-gradient(to top, black 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 100%);
-  transition: opacity 0.3s ease-out;
-  /* z-index: 10; */
-}
 
 .pl-10 {
   padding-left: 10px;
+}
+
+.mobile-nav-footer {
+  display: none;
+}
+
+.linkDisabled {
+  display: none;
+}
+
+.desktop-footer-links {
+  display: flex;
+  gap: 200px;
+}
+
+@media (max-width: 786px) {
+  .content-container {
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-top: 50px;
+    font-size: 14px;
+  }
+
+  .content-left,
+  .content-right {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .overview-container,
+  .features-container {
+    height: auto;
+    overflow: visible;
+  }
+
+  .screenshot-container {
+    min-height: 300px;
+  }
+
+  .header {
+    display: flex;
+    padding: 20px 20px 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.6;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0px;
+    min-height: 60px;
+    width: 100%;
+    border-top: 1px solid rgb(139, 139, 139);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 52px;
+    line-height: 1.6;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .font-size-title {
+    font-size: 1rem;
+  }
+
+  .nav {
+    width: 60px;
+  }
+
+  .rotated-text,
+  .rotated-text-right {
+    font-size: 22px;
+  }
+
+  .rotated-text {
+    left: -20px;
+  }
+
+  .tech-stack-container {
+    height: auto;
+    padding: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+
+  .techImages {
+    height: 30px;
+    width: auto;
+  }
+
+  .icon-tooltip {
+    display: none;
+  }
+
+  .bottom-link-chars {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+
+  .header {
+    border-bottom: 1px solid rgb(37, 37, 37);
+  }
+
+  .desktop-footer-links {
+    display: none;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Adjust height as needed */
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(10, 10, 10, 0.4); /* Example background */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgb(37, 37, 37);
+    z-index: 1000;
+  }
+
+  /* 4. Display the new mobile navigation container */
+  .mobile-nav-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* 5. Style the new navigation buttons and links */
+  .mobile-nav-btn {
+    font-family: 'aesthetic', sans-serif;
+    font-size: 1rem;
+    color: #e3e3e3;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-nav-btn:hover {
+    color: #ffffff;
+  }
+
+  .mobile-nav-btn:disabled {
+    color: #555;
+    cursor: not-allowed;
+  }
+
+  /* 6. Add padding to the bottom of the content to prevent the fixed footer from covering it */
+  .content-container {
+    padding-bottom: 80px; /* Should be more than the footer height */
+  }
 }

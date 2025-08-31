@@ -47,7 +47,7 @@ export const socials = [
     name: 'LinkedIn',
     link: 'https://www.linkedin.com/in/ishvendra-singh-82538a1b0/',
   },
-  { name: 'Email', link: 'mailto:ishvendra@gmail.com' },
+  { name: 'ishvendra@gmail.com', link: 'mailto:ishvendra@gmail.com' },
   { name: 'GitHub', link: 'https://github.com/Ishvendra' },
   { name: 'Bio', link: '/about' },
 ];
@@ -55,7 +55,7 @@ export const socials = [
 export const projectFooter = [
   { name: 'HOME', link: '/' },
   {
-    name: 'ABOUT',
+    name: 'Bio',
     link: '/about',
   },
 ];

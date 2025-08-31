@@ -138,6 +138,7 @@ export default function NotFound() {
         fill
         src='/assets/common/404.webp'
         alt='404 image'
+        className={styles.bgImage}
         style={{
           objectFit: 'cover',
           objectPosition: 'top',

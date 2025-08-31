@@ -4,6 +4,7 @@ import {
   workExperienceData,
   skillsData,
 } from '../../data/about';
+import clsx from 'clsx';
 import styles from '../../styles/about.module.css';
 
 const WorkEntry = ({ workData }) => {
@@ -66,7 +67,14 @@ const AboutPage = () => {
 
       <section className={styles.section}>
         {/* Todo: Try adding h1/h2 for section titles for SEO */}
-        <div className={styles['section-title']}>Experience</div>
+        <div
+          className={clsx(
+            styles['section-title'],
+            styles['first-section-title']
+          )}
+        >
+          Experience
+        </div>
         <div className={styles.divider}></div>
         <div className={styles['section-content']}>
           {workExperienceData.map((workData, index) => (

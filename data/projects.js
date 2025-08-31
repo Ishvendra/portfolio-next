@@ -20,46 +20,23 @@ import clsx from 'clsx';
 const projects = [
   {
     id: '01',
-    title: 'KSH QMS: Quality & Compliance Tracker',
-    date: 'Feb 2025',
+    title: 'Nuskin',
+    date: 'Oct 2023',
     overview: (
       <>
         <main className={styles.color}>
           <section>
             <p>
-              <span className='tooltip bold'>
-                Quality Track
-                <span className='tooltiptext'>
-                  Original name has been changed to maintain confidentiality.
-                </span>
+              <span className={styles.reveal}>Nuskin Website Revamp</span> was a
+              modernization initiative where the legacy CMS-based platform was
+              replaced by a fast, scalable frontend architecture using React and
+              a{' '}
+              <span className={clsx(styles['reveal'], styles['bold'])}>
+                headless CMS (Contentstack).
               </span>{' '}
-              is a tailor-made enterprise application developed for a leading
-              Indian manufacturer of{' '}
-              <strong className={styles.reveal}>
-                Winding Wires and Conductors
-              </strong>
-              , operating in the{' '}
-              <strong className={styles.reveal}>
-                high-precision industrial sector.
-              </strong>
-            </p>
-          </section>
-
-          <section>
-            <p>
-              The system was designed to overhaul their
-              <strong className='reveal wavy-yellow'>
-                {' '}
-                Quality Assurance workflows,{' '}
-              </strong>
-              replacing traditional manual and spreadsheet-based methods with a
-              modern, digital-first platform. It centralizes and streamlines
-              quality checks, alerts, inspections, certifications, and
-              corrective actions,{' '}
-              <strong className={styles.reveal}>
-                significantly improving compliance in an{' '}
-                <span className='bold highlight'>efficient manner.</span>
-              </strong>
+              The goal was to rebuild UI components from scratch, improve
+              maintainability, and integrate with a microfrontend architecture
+              to support multiple teams working in different frameworks.
             </p>
           </section>
         </main>
@@ -67,217 +44,143 @@ const projects = [
     ),
     sections: (
       <>
-        <section id='my-role'>
-          <h2>My Role</h2>
+        <section id={styles['my-role']}>
+          <h2 className={styles.sectionTitle}>My Role</h2>
           <p>
-            I worked as a{' '}
-            <strong className={styles.reveal}>Frontend Developer</strong> on
-            this project and contributed to UI planning and integration.{' '}
-            <strong className={styles.reveal}>
-              My core responsibilities included:
-            </strong>
+            I worked as a frontend developer under the mentorship of a senior
+            developer. I was involved in rebuilding UI components based on Figma
+            designs, writing reusable and testable code, and integrating both
+            frontend components and headless CMS content. I also made meaningful
+            contributions to complex validation logic and cross-framework
+            microfrontend integration.
           </p>
+        </section>
+
+        <section id={styles['problem']}>
+          <h2 className={styles.sectionTitle}>Key Features & Work Areas</h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
-              Developing key modules like NC Tracking, 8D Root Cause Analysis,
-              Dashboard & MIS Reports, and the complete Settings Module.
+              Component Development: Built reusable UI components like cards,
+              banners, buttons, etc., from Figma designs in both React and
+              Storybook.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Designing reusable components, modals, and layouts to maintain
-              consistency across modules.
+              Component Testing: Wrote test cases for a range of shared
+              components using Jest and React Testing Library.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Building a custom Axios helper for managing API requests and error
-              handling, integrated with React Query for data fetching and
-              caching.
+              CMS Integration: Pulled dynamic content from Contentstack,
+              integrating it into the UI via API calls.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Implementing form workflows using react hook form and data tables
-              using DataGrid.
+              Microfrontend Architecture: Worked on integrating modules
+              developed in Vue.js into the main React application using
+              microfrontend techniques.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Handling edge cases like API failure states, empty datasets, and
-              conditional input validation.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Collaborating daily with the backend team to refine requirements
-              and resolve integration issues.
+              Analytics Setup: Integrated Google Analytics to track CMS-driven
+              content behavior.{' '}
             </li>
           </ul>
         </section>
 
-        <section id='problem'>
-          <h2>The Problem</h2>
-          <p>
-            The client relied on{' '}
-            <span className={styles.reveal}>manual workflows</span> and{' '}
-            <strong>spreadsheet-based tools</strong> to manage quality processes
-            like inspections, test results, and compliance checks. This led to:
-          </p>
+        <section id={styles['solution']}>
+          <h2 className={styles.sectionTitle}>Challenges & Solutions</h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
-              High risk of{' '}
-              <strong className={styles.reveal}>manual errors</strong> and data
-              loss
+              Framework Interoperability: Learned and implemented microfrontend
+              techniques to allow React and Vue components to coexist in the
+              same project.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              <span className={styles.reveal}>Slow decision-making</span> and
-              scattered records
+              Complex Nested Object Validation: Successfully completed a deep
+              object comparison and validation task involving large, deeply
+              nested objects—something even senior developers found challenging.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              <strong className={styles.reveal}>
-                Limited traceability
-              </strong>{' '}
-              and poor audit readiness
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Difficulty in maintaining{' '}
-              <span className={styles.reveal}>compliance</span> across multiple
-              stakeholders
+              Scalability of Components: Ensured components were modular, styled
+              independently, and fully documented in Storybook for easy adoption
+              by other teams.
             </li>
           </ul>
         </section>
 
-        <section id='solution'>
-          <h2>The Solution</h2>
-          <p>
-            We developed a custom enterprise-grade solution to digitize and
-            centralize quality assurance operations.
-          </p>
-          <p>The application provides:</p>
+        <section id={styles['impact']}>
+          <h2
+            className={clsx(
+              styles['color'],
+              styles['font-size-title'],
+              styles.sectionTitle
+            )}
+          >
+            Impact
+          </h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
-              Automatic fetching of Technical Data Sheets (TDS) for real-time
-              inspection reference
+              Contributed to establishing a robust, scalable design system from
+              scratch.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Integrated Inspection Sheet with auto-calculation of OK/Not OK
-              status
+              Improved developer efficiency through well-tested, reusable
+              components.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Instant generation of Test Certificates post inspection
+              Enabled CMS-driven dynamic content integration that allowed
+              business users to manage and preview site content easily.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Workflow-driven creation of NCs and 8D Reports for corrective
-              action
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Dashboards and role-based access to ensure compliance and data
-              security
+              Ensured seamless tracking and user interaction analytics with GA
+              integration.
             </li>
           </ul>
         </section>
 
-        <section id='my-work'>
-          <h2>Modules I Developed</h2>
+        <section id={styles['ownership']}>
+          <h2
+            className={clsx(
+              styles['color'],
+              styles['font-size-title'],
+              styles.sectionTitle
+            )}
+          >
+            Collaboration & Growth
+          </h2>
           <p>
-            I was responsible for implementing several high-impact modules
-            within the system:
+            While initially shadowing a senior developer, I quickly took
+            ownership of key modules and was trusted with complex tasks like
+            deep object validation and framework integration. The successful
+            completion of a critical debugging task earned me recognition and
+            significantly boosted my confidence in handling production-level
+            code independently.
           </p>
-          <ul className={styles.list}>
-            <li className={styles['list-item']}>
-              <Bullet />
-              NC Tracking: Real-time logging of non-conformities with
-              validation, traceability, and review flow.
-            </li>
-            <div className='flexbox mb-20'>
-              <img
-                src='/assets/projects/quality-track/NC.png'
-                width={'100%'}
-                className='mt-4'
-                alt='NC Flowchart'
-              />
-              <p className='underline mb-10'>
-                Fig. 1 - NC flowchart illustration
-              </p>
-            </div>
-            <li className={styles['list-item']}>
-              <Bullet />
-              8D Reports: Step-wise RCA forms with PDF export, role-based
-              collaboration, and history tracking.
-            </li>
-            <div className='flexbox mb-20'>
-              <img
-                src='/assets/projects/quality-track/8D.png'
-                width={'70%'}
-                className='mt-4'
-                alt='8D Flowchart'
-              />
-              <p className='underline mb-10'>Fig. 2 - 8D illustration</p>
-            </div>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Dashboard & MIS: Real-time KPIs, tabular reports using DataGrid,
-              exportable Excel & PDF files.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Settings Module: Developed interfaces for user roles, unit info,
-              pricing charts, notifications, and more using reusable components
-              and modal-based forms.
-            </li>
-          </ul>
-        </section>
-
-        <section id='impact'>
-          <h2 className='color font-size-title'>Impact</h2>
-          <p>The solution delivered measurable operational improvements:</p>
-          <ul className={styles.list}>
-            <li className={styles['list-item']}>
-              <Bullet />
-              95% reduction in manual errors during inspections.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              30% faster data entry and report generation.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              40% improvement in compliance tracking and audits.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Audit readiness enhanced with PDF/Excel exports and full
-              traceability.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Overall 35% boost in operational efficiency across quality teams.
-            </li>
-          </ul>
         </section>
       </>
     ),
     images: [
-      '/assets/projects/quality-track/1.png',
-      '/assets/projects/quality-track/2.png',
-      '/assets/projects/quality-track/3.png',
-      '/assets/projects/quality-track/4.png',
-      '/assets/projects/quality-track/5.png',
+      '/assets/projects/shashvat/1.png',
+      '/assets/projects/shashvat/2.png',
+      '/assets/projects/shashvat/3.png',
     ],
     techStack: [
-      { src: NextJsIcon, alt: 'Next JS' },
-      { src: ReactQueryIcon, alt: 'React Query' },
-      { src: NestJsIcon, alt: 'Nest JS' },
-      { src: TypeScriptIcon, alt: 'Type script' },
-      { src: MongoIcon, alt: 'Mongo DB' },
+      { src: StorybookIcon, alt: 'Storybook' },
+      { src: JestIcon, alt: 'Jest' },
+      { src: ContentStackIcon, alt: 'ContentStack' },
+      { src: NextJsIcon, alt: 'Next Js' },
     ],
   },
+
   {
     id: '02',
     title: 'Dynamic Diet',
@@ -292,14 +195,19 @@ const projects = [
                 customized customer relationship management system
               </span>{' '}
               built for a growing diet consultancy organization handling over{' '}
-              <span className='bold reveal'>1000+ active clients.</span> The
-              platform streamlines core operations like client{' '}
-              <span className='bold reveal'>
+              <span className={clsx(styles['bold'], styles['reveal'])}>
+                1000+ active clients.
+              </span>{' '}
+              The platform streamlines core operations like client{' '}
+              <span className={clsx(styles['bold'], styles['reveal'])}>
                 tracking, order management, analytics, diet planning, and
                 communication,
               </span>{' '}
               enabling the business to deliver personalized health and nutrition
-              guidance at <span className='bold highlight'>scale.</span>
+              guidance at{' '}
+              <span className={clsx(styles['bold'], styles['highlight'])}>
+                scale.
+              </span>
             </p>
           </section>
         </main>
@@ -307,8 +215,8 @@ const projects = [
     ),
     sections: (
       <>
-        <section id='my-role'>
-          <h2>My Role</h2>
+        <section id={styles['my-role']}>
+          <h2 className={styles.sectionTitle}>My Role</h2>
           <p>
             <strong className={styles.reveal}>
               I led the end-to-end development of this project
@@ -346,8 +254,8 @@ const projects = [
           </ul>
         </section>
 
-        <section id='problem'>
-          <h2>The Problem</h2>
+        <section id={styles['problem']}>
+          <h2 className={styles.sectionTitle}>The Problem</h2>
           <p>
             The consultancy was managing client information, orders, and
             follow-ups manually across spreadsheets and communication platforms.
@@ -375,8 +283,8 @@ const projects = [
           </ul>
         </section>
 
-        <section id='solution'>
-          <h2>The Solution</h2>
+        <section id={styles['solution']}>
+          <h2 className={styles.sectionTitle}>The Solution</h2>
           <p>We designed and developed a tailored CRM platform that:</p>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
@@ -404,8 +312,8 @@ const projects = [
           </ul>
         </section>
 
-        <section id='my-work'>
-          <h2>Modules I Developed</h2>
+        <section id={styles['my-work']}>
+          <h2 className={styles.sectionTitle}>Modules I Developed</h2>
           <p>
             I contributed to and led development of multiple critical modules,
             including:
@@ -461,8 +369,16 @@ const projects = [
           </ul>
         </section>
 
-        <section id='impact'>
-          <h2 className='color font-size-title'>Impact</h2>
+        <section id={styles['impact']}>
+          <h2
+            className={clsx(
+              styles['color'],
+              styles['font-size-title'],
+              styles.sectionTitle
+            )}
+          >
+            Impact
+          </h2>
           <p>The solution delivered measurable operational improvements:</p>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
@@ -530,7 +446,7 @@ const projects = [
               <span className={styles.reveal}>multi-tenant architecture,</span>{' '}
               it allows each agency to manage its own data in isolation,
               supporting custom workflows, rich analytics and{' '}
-              <span className='highlight'>modular expansion.</span>
+              <span className={styles.highlight}>modular expansion.</span>
             </p>
           </section>
         </main>
@@ -538,8 +454,8 @@ const projects = [
     ),
     sections: (
       <>
-        <section id='my-role'>
-          <h2>My Role</h2>
+        <section id={styles['my-role']}>
+          <h2 className={styles.sectionTitle}>My Role</h2>
           <p>
             <strong className={styles.reveal}>
               I led the end-to-end development of this project
@@ -552,8 +468,10 @@ const projects = [
           </p>
         </section>
 
-        <section id='problem'>
-          <h2>Key Features & Modules Developed</h2>
+        <section id={styles['problem']}>
+          <h2 className={styles.sectionTitle}>
+            Key Features & Modules Developed
+          </h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
@@ -587,8 +505,8 @@ const projects = [
           </ul>
         </section>
 
-        <section id='solution'>
-          <h2>Challenges & Solutions</h2>
+        <section id={styles['solution']}>
+          <h2 className={styles.sectionTitle}>Challenges & Solutions</h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
@@ -619,8 +537,16 @@ const projects = [
           </ul>
         </section>
 
-        <section id='impact'>
-          <h2 className='color font-size-title'>Impact</h2>
+        <section id={styles['impact']}>
+          <h2
+            className={clsx(
+              styles['color'],
+              styles['font-size-title'],
+              styles.sectionTitle
+            )}
+          >
+            Impact
+          </h2>
           <p>The solution delivered measurable operational improvements:</p>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
@@ -646,8 +572,14 @@ const projects = [
           </ul>
         </section>
 
-        <section id='ownership'>
-          <h2 className='color font-size-title'>
+        <section id={styles['ownership']}>
+          <h2
+            className={clsx(
+              styles['color'],
+              styles['font-size-title'],
+              styles.sectionTitle
+            )}
+          >
             Client Communication & Ownership
           </h2>
           <p>
@@ -693,8 +625,10 @@ const projects = [
           </section>
 
           <section>
-            <h2>Challenges in School Communication:</h2>
-            <p className='mb-10'>
+            <h2 className={styles.sectionTitle}>
+              Challenges in School Communication:
+            </h2>
+            <p className={styles['mb-10']}>
               Schools struggled with offline notices, fragmented communication,
               and lack of real-time updates. Shashvat Connect was designed to
               digitize school interactions, reduce paperwork, and improve
@@ -706,8 +640,8 @@ const projects = [
     ),
     sections: (
       <>
-        <section id='my-role'>
-          <h2>My Role</h2>
+        <section id={styles['my-role']}>
+          <h2 className={styles.sectionTitle}>My Role</h2>
           <p>
             I was part of the frontend team and contributed extensively to core
             functionality and UI/UX. I developed custom components, worked on
@@ -716,8 +650,10 @@ const projects = [
           </p>
         </section>
 
-        <section id='problem'>
-          <h2>Key Features & Modules Developed</h2>
+        <section id={styles['problem']}>
+          <h2 className={styles.sectionTitle}>
+            Key Features & Modules Developed
+          </h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
@@ -743,8 +679,8 @@ const projects = [
           </ul>
         </section>
 
-        <section id='solution'>
-          <h2>Challenges & Solutions</h2>
+        <section id={styles['solution']}>
+          <h2 className={styles.sectionTitle}>Challenges & Solutions</h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
@@ -770,8 +706,16 @@ const projects = [
           </ul>
         </section>
 
-        <section id='impact'>
-          <h2 className='color font-size-title'>Impact</h2>
+        <section id={styles['impact']}>
+          <h2
+            className={clsx(
+              styles['color'],
+              styles['font-size-title'],
+              styles.sectionTitle
+            )}
+          >
+            Impact
+          </h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
@@ -795,8 +739,16 @@ const projects = [
           </ul>
         </section>
 
-        <section id='ownership'>
-          <h2 className='color font-size-title'>Collaboration & Ownership</h2>
+        <section id={styles['ownership']}>
+          <h2
+            className={clsx(
+              styles['color'],
+              styles['font-size-title'],
+              styles.sectionTitle
+            )}
+          >
+            Collaboration & Ownership
+          </h2>
           <p>
             While I collaborated closely with other frontend team members, I
             independently handled:
@@ -838,21 +790,48 @@ const projects = [
   },
   {
     id: '05',
-    title: 'Nuskin',
-    date: 'Oct 2023',
+    title: 'QMS for KSH Int.',
+    date: 'Feb 2025',
     overview: (
       <>
         <main className={styles.color}>
           <section>
             <p>
-              <span className={styles.reveal}>Nuskin Website Revamp</span> was a
-              modernization initiative where the legacy CMS-based platform was
-              replaced by a fast, scalable frontend architecture using React and
-              a{' '}
-              <span className='reveal bold'>headless CMS (Contentstack).</span>{' '}
-              The goal was to rebuild UI components from scratch, improve
-              maintainability, and integrate with a microfrontend architecture
-              to support multiple teams working in different frameworks.
+              <span className={clsx(styles['tooltip'], styles['bold'])}>
+                Quality Track
+                <span className={styles.tooltiptext}>
+                  Original name has been changed to maintain confidentiality.
+                </span>
+              </span>{' '}
+              is a tailor-made enterprise application developed for a leading
+              Indian manufacturer of{' '}
+              <strong className={styles.reveal}>
+                Winding Wires and Conductors
+              </strong>
+              , operating in the{' '}
+              <strong className={styles.reveal}>
+                high-precision industrial sector.
+              </strong>
+            </p>
+          </section>
+
+          <section>
+            <p>
+              The system was designed to overhaul their
+              <strong className={clsx(styles['reveal'], styles['wavy-yellow'])}>
+                {' '}
+                Quality Assurance workflows,{' '}
+              </strong>
+              replacing traditional manual and spreadsheet-based methods with a
+              modern, digital-first platform. It centralizes and streamlines
+              quality checks, alerts, inspections, certifications, and
+              corrective actions,{' '}
+              <strong className={styles.reveal}>
+                significantly improving compliance in an{' '}
+                <span className={clsx(styles['bold'], styles['highlight'])}>
+                  efficient manner.
+                </span>
+              </strong>
             </p>
           </section>
         </main>
@@ -860,124 +839,225 @@ const projects = [
     ),
     sections: (
       <>
-        <section id='my-role'>
-          <h2>My Role</h2>
+        <section id={styles['my-role']}>
+          <h2 className={styles.sectionTitle}>My Role</h2>
           <p>
-            I worked as a frontend developer under the mentorship of a senior
-            developer. I was involved in rebuilding UI components based on Figma
-            designs, writing reusable and testable code, and integrating both
-            frontend components and headless CMS content. I also made meaningful
-            contributions to complex validation logic and cross-framework
-            microfrontend integration.
+            I worked as a{' '}
+            <strong className={styles.reveal}>Frontend Developer</strong> on
+            this project and contributed to UI planning and integration.{' '}
+            <strong className={styles.reveal}>
+              My core responsibilities included:
+            </strong>
           </p>
-        </section>
-
-        <section id='problem'>
-          <h2>Key Features & Work Areas</h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
-              Component Development: Built reusable UI components like cards,
-              banners, buttons, etc., from Figma designs in both React and
-              Storybook.
+              Developing key modules like NC Tracking, 8D Root Cause Analysis,
+              Dashboard & MIS Reports, and the complete Settings Module.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Component Testing: Wrote test cases for a range of shared
-              components using Jest and React Testing Library.
+              Designing reusable components, modals, and layouts to maintain
+              consistency across modules.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              CMS Integration: Pulled dynamic content from Contentstack,
-              integrating it into the UI via API calls.
+              Building a custom Axios helper for managing API requests and error
+              handling, integrated with React Query for data fetching and
+              caching.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Microfrontend Architecture: Worked on integrating modules
-              developed in Vue.js into the main React application using
-              microfrontend techniques.
+              Implementing form workflows using react hook form and data tables
+              using DataGrid.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Analytics Setup: Integrated Google Analytics to track CMS-driven
-              content behavior.{' '}
+              Handling edge cases like API failure states, empty datasets, and
+              conditional input validation.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Collaborating daily with the backend team to refine requirements
+              and resolve integration issues.
             </li>
           </ul>
         </section>
 
-        <section id='solution'>
-          <h2>Challenges & Solutions</h2>
-          <ul className={styles.list}>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Framework Interoperability: Learned and implemented microfrontend
-              techniques to allow React and Vue components to coexist in the
-              same project.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Complex Nested Object Validation: Successfully completed a deep
-              object comparison and validation task involving large, deeply
-              nested objects—something even senior developers found challenging.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Scalability of Components: Ensured components were modular, styled
-              independently, and fully documented in Storybook for easy adoption
-              by other teams.
-            </li>
-          </ul>
-        </section>
-
-        <section id='impact'>
-          <h2 className='color font-size-title'>Impact</h2>
-          <ul className={styles.list}>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Contributed to establishing a robust, scalable design system from
-              scratch.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Improved developer efficiency through well-tested, reusable
-              components.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Enabled CMS-driven dynamic content integration that allowed
-              business users to manage and preview site content easily.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Ensured seamless tracking and user interaction analytics with GA
-              integration.
-            </li>
-          </ul>
-        </section>
-
-        <section id='ownership'>
-          <h2 className='color font-size-title'>Collaboration & Growth</h2>
+        <section id={styles['problem']}>
+          <h2 className={styles.sectionTitle}>The Problem</h2>
           <p>
-            While initially shadowing a senior developer, I quickly took
-            ownership of key modules and was trusted with complex tasks like
-            deep object validation and framework integration. The successful
-            completion of a critical debugging task earned me recognition and
-            significantly boosted my confidence in handling production-level
-            code independently.
+            The client relied on{' '}
+            <span className={styles.reveal}>manual workflows</span> and{' '}
+            <strong>spreadsheet-based tools</strong> to manage quality processes
+            like inspections, test results, and compliance checks. This led to:
           </p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              High risk of{' '}
+              <strong className={styles.reveal}>manual errors</strong> and data
+              loss
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              <span className={styles.reveal}>Slow decision-making</span> and
+              scattered records
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              <strong className={styles.reveal}>
+                Limited traceability
+              </strong>{' '}
+              and poor audit readiness
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Difficulty in maintaining{' '}
+              <span className={styles.reveal}>compliance</span> across multiple
+              stakeholders
+            </li>
+          </ul>
+        </section>
+
+        <section id={styles['solution']}>
+          <h2 className={styles.sectionTitle}>The Solution</h2>
+          <p>
+            We developed a custom enterprise-grade solution to digitize and
+            centralize quality assurance operations.
+          </p>
+          <p>The application provides:</p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Automatic fetching of Technical Data Sheets (TDS) for real-time
+              inspection reference
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Integrated Inspection Sheet with auto-calculation of OK/Not OK
+              status
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Instant generation of Test Certificates post inspection
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Workflow-driven creation of NCs and 8D Reports for corrective
+              action
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Dashboards and role-based access to ensure compliance and data
+              security
+            </li>
+          </ul>
+        </section>
+
+        <section id={styles['my-work']}>
+          <h2 className={styles.sectionTitle}>Modules I Developed</h2>
+          <p>
+            I was responsible for implementing several high-impact modules
+            within the system:
+          </p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              NC Tracking: Real-time logging of non-conformities with
+              validation, traceability, and review flow.
+            </li>
+            <div className={clsx(styles['flexbox'], styles['mb-20'])}>
+              <img
+                src='/assets/projects/quality-track/NC.png'
+                width={'100%'}
+                className={styles['mt-4']}
+                alt='NC Flowchart'
+              />
+              <p className={clsx(styles['underline'], styles['mb-10'])}>
+                Fig. 1 - NC flowchart illustration
+              </p>
+            </div>
+            <li className={styles['list-item']}>
+              <Bullet />
+              8D Reports: Step-wise RCA forms with PDF export, role-based
+              collaboration, and history tracking.
+            </li>
+            <div className={clsx(styles['flexbox'], styles['mb-20'])}>
+              <img
+                src='/assets/projects/quality-track/8D.png'
+                width={'70%'}
+                className='mt-4'
+                alt='8D Flowchart'
+              />
+              <p className={clsx(styles['underline'], styles['mb-10'])}>
+                Fig. 2 - 8D illustration
+              </p>
+            </div>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Dashboard & MIS: Real-time KPIs, tabular reports using DataGrid,
+              exportable Excel & PDF files.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Settings Module: Developed interfaces for user roles, unit info,
+              pricing charts, notifications, and more using reusable components
+              and modal-based forms.
+            </li>
+          </ul>
+        </section>
+
+        <section id={styles['impact']}>
+          <h2
+            className={clsx(
+              styles['color'],
+              styles['font-size-title'],
+              styles.sectionTitle
+            )}
+          >
+            Impact
+          </h2>
+          <p>The solution delivered measurable operational improvements:</p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              95% reduction in manual errors during inspections.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              30% faster data entry and report generation.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              40% improvement in compliance tracking and audits.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Audit readiness enhanced with PDF/Excel exports and full
+              traceability.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Overall 35% boost in operational efficiency across quality teams.
+            </li>
+          </ul>
         </section>
       </>
     ),
     images: [
-      '/assets/projects/shashvat/1.png',
-      '/assets/projects/shashvat/2.png',
-      '/assets/projects/shashvat/3.png',
+      '/assets/projects/quality-track/1.png',
+      '/assets/projects/quality-track/2.png',
+      '/assets/projects/quality-track/3.png',
+      '/assets/projects/quality-track/4.png',
+      '/assets/projects/quality-track/5.png',
     ],
     techStack: [
-      { src: StorybookIcon, alt: 'Storybook' },
-      { src: JestIcon, alt: 'Jest' },
-      { src: ContentStackIcon, alt: 'ContentStack' },
-      { src: NextJsIcon, alt: 'Next Js' },
+      { src: NextJsIcon, alt: 'Next JS' },
+      { src: ReactQueryIcon, alt: 'React Query' },
+      { src: NestJsIcon, alt: 'Nest JS' },
+      { src: TypeScriptIcon, alt: 'Type script' },
+      { src: MongoIcon, alt: 'Mongo DB' },
     ],
   },
 ];
