@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { Inconsolata, Nunito, Noto_Sans } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 
 const inconsolata = Inconsolata({
   subsets: ['latin'],
@@ -88,6 +89,8 @@ export default function RootLayout({ children }) {
           </div>
         )}
         {children}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
