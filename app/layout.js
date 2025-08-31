@@ -4,6 +4,7 @@ import './globals.css';
 import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect } from 'react';
 import { Inconsolata, Nunito, Noto_Sans } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inconsolata = Inconsolata({
   subsets: ['latin'],
