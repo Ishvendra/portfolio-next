@@ -78,7 +78,7 @@ const ProjectCarousel = ({ images }) => {
           }}
           className='mySwiper custom-cards-effect'
         >
-          {images.map((image, index) => (
+          {images?.map((image, index) => (
             <SwiperSlide
               key={index}
               className='custom-slide'

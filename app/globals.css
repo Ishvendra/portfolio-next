@@ -406,7 +406,7 @@ code {
 
 .hero:after {
   content: '';
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png');
+  background-image: url('/assets/common/noise.webp');
   height: 300%;
   width: 300%;
   position: fixed;
@@ -430,7 +430,7 @@ code {
 
 .hero-2:after {
   content: '';
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png');
+  background-image: url('/assets/common/noise.webp');
   height: 300%;
   width: 300%;
   position: fixed;

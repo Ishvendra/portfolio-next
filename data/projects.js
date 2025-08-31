@@ -413,11 +413,11 @@ const projects = [
       </>
     ),
     images: [
-      '/assets/projects/quality-track/1.png',
-      '/assets/projects/quality-track/2.png',
-      '/assets/projects/quality-track/3.png',
-      '/assets/projects/quality-track/4.png',
-      '/assets/projects/quality-track/5.png',
+      '/assets/projects/quality-track/1.webp',
+      '/assets/projects/quality-track/2.webp',
+      '/assets/projects/quality-track/3.webp',
+      '/assets/projects/quality-track/4.webp',
+      '/assets/projects/quality-track/5.webp',
     ],
     techStack: [
       { src: NextJsIcon, alt: 'Next JS' },
@@ -776,11 +776,7 @@ const projects = [
         </section>
       </>
     ),
-    images: [
-      '/assets/projects/shashvat/1.png',
-      '/assets/projects/shashvat/2.png',
-      '/assets/projects/shashvat/3.png',
-    ],
+    // images: [],
     techStack: [
       { src: RealmIcon, alt: 'Realm DB' },
       { src: FirebaseIcon, alt: 'Firebase' },
@@ -969,7 +965,7 @@ const projects = [
             </li>
             <div className={clsx(styles['flexbox'], styles['mb-20'])}>
               <img
-                src='/assets/projects/quality-track/NC.png'
+                src='/assets/projects/quality-track/NC.webp'
                 width={'100%'}
                 className={styles['mt-4']}
                 alt='NC Flowchart'
@@ -985,7 +981,7 @@ const projects = [
             </li>
             <div className={clsx(styles['flexbox'], styles['mb-20'])}>
               <img
-                src='/assets/projects/quality-track/8D.png'
+                src='/assets/projects/quality-track/8D.webp'
                 width={'70%'}
                 className='mt-4'
                 alt='8D Flowchart'
@@ -1046,11 +1042,11 @@ const projects = [
       </>
     ),
     images: [
-      '/assets/projects/quality-track/1.png',
-      '/assets/projects/quality-track/2.png',
-      '/assets/projects/quality-track/3.png',
-      '/assets/projects/quality-track/4.png',
-      '/assets/projects/quality-track/5.png',
+      '/assets/projects/quality-track/1.webp',
+      '/assets/projects/quality-track/2.webp',
+      '/assets/projects/quality-track/3.webp',
+      '/assets/projects/quality-track/4.webp',
+      '/assets/projects/quality-track/5.webp',
     ],
     techStack: [
       { src: NextJsIcon, alt: 'Next JS' },
