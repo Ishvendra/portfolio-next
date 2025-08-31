@@ -394,6 +394,12 @@
   transform: scale(1.02);
 }
 
+.desktopOnlySection {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 @media (max-width: 768px) {
   .container {
     --namaste-font-size: 30px;
@@ -437,6 +443,10 @@
   }
 
   .desktopOnly {
+    display: none;
+  }
+
+  .desktopOnlySection {
     display: none;
   }
 

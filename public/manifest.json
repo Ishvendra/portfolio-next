@@ -1,0 +1,9 @@
+{
+  "name": "Ishvendra Portfolio",
+  "short_name": "Ishvendra",
+  "description": "Portfolio of Ishvendra Singh, Fullstack Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#520000"
+}

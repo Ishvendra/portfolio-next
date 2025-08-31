@@ -1,5 +1,5 @@
-// components/NamasteText.jsx
 'use client';
+
 import { useEffect, useRef } from 'react';
 
 export default function NamasteText({

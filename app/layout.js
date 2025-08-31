@@ -55,6 +55,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en' nighteye='disabled'>
       <head>
+        <title>Ishvendra Singh</title>
         <link rel='preconnect' href='https://www.linkedin.com' />
         <link rel='preconnect' href='https://github.com' />
         <link rel='preconnect' href='https://drive.google.com' />
