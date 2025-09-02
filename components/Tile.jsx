@@ -30,7 +30,6 @@ const Tile = ({ idx, length, images, link, name }) => {
   const scaleY = windowWidth < 1000 ? 1 + t * 0.5 : 0.6 + t * 0.5;
 
   const clamp = (n, min = 0, max = 1) => Math.max(min, Math.min(max, n));
-  console.log(name);
   const gapX = 50 + clamp((windowWidth - 500) / (1500 - 500)) * 40;
   const xPos = index * gapX;
 
@@ -109,6 +108,7 @@ const Tile = ({ idx, length, images, link, name }) => {
           hover: { opacity: 1, zIndex: 2 },
         }}
         transition={{ duration: 0.25, ease: 'easeInOut' }}
+        fetchPriority='high'
       />
     </motion.div>
   );
