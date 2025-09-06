@@ -83,10 +83,6 @@ export default function HamburgerMenu() {
                   I like solving problems, questioning defaults, and
                   experimenting with new ideas.
                 </p>
-                <p className={styles.menuText}>
-                  Beyond code, my interests range from the vastness of astronomy
-                  to the depths of self-knowledge and philosophical inquiry.
-                </p>
               </div>
             </motion.div>
 
@@ -112,9 +108,9 @@ export default function HamburgerMenu() {
                 {socials.map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 400 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
+                    transition={{ delay: 0.2 + index * 0.1 }}
                   >
                     <div className='wrapper'>
                       <div className='inner'>

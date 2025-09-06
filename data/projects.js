@@ -1,4 +1,7 @@
+import Link from 'next/link';
+import Image from 'next/image';
 import Bullet from '../components/Bullet';
+import OutLink from '@/components/OutLink';
 import ReactNativeIcon from '../public/assets/icons/react-native.png';
 import MuiIcon from '../public/assets/icons/mui.png';
 import NextJsIcon from '../public/assets/icons/next.png';
@@ -25,18 +28,36 @@ const projects = [
     overview: (
       <>
         <main className={styles.color}>
-          <section>
+          <section className={styles.section}>
             <p>
-              <span className={styles.reveal}>Nuskin Website Revamp</span> was a
-              modernization initiative where the legacy CMS-based platform was
-              replaced by a fast, scalable frontend architecture using React and
-              a{' '}
+              <Link
+                href='https://www.nuskin.com/nuskin.html'
+                target='_blank'
+                className={clsx(
+                  styles['reveal'],
+                  styles['bold'],
+                  styles['reveal-link']
+                )}
+              >
+                Nuskin Website Migration
+                <OutLink />
+              </Link>
+              {'  '}
+              was a modernization initiative where the legacy CMS-based platform
+              was replaced by a fast, scalable frontend architecture using Next
+              JS and a{' '}
               <span className={clsx(styles['reveal'], styles['bold'])}>
-                headless CMS (Contentstack).
+                headless CMS (ContentStack).
               </span>{' '}
               The goal was to rebuild UI components from scratch, improve
               maintainability, and integrate with a microfrontend architecture
               to support multiple teams working in different frameworks.
+            </p>
+            <p>
+              Additionally, we enabled non-technical teams, such as content
+              writers, to efficiently manage content in ContentStack with
+              minimal developer intervention by creating custom plugins and
+              extensions.
             </p>
           </section>
         </main>
@@ -45,72 +66,335 @@ const projects = [
     sections: (
       <>
         <section id={styles['my-role']}>
-          <h2 className={styles.sectionTitle}>My Role</h2>
+          <h2 className={styles.sectionTitle}>Project Background</h2>
           <p>
-            I worked as a frontend developer under the mentorship of a senior
-            developer. I was involved in rebuilding UI components based on Figma
-            designs, writing reusable and testable code, and integrating both
-            frontend components and headless CMS content. I also made meaningful
-            contributions to complex validation logic and cross-framework
-            microfrontend integration.
+            The existing CMS had severe customization limits. Small changes
+            required developer intervention, slowing down workflows. Expanding
+            to multiple locales made it even harder to maintain consistency.
+          </p>
+          <Image
+            src='/assets/projects/nuskin/limitations.png'
+            alt='traditional CMS limitations'
+            height={198}
+            width={600}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p>
+            Goal: Build a flexible, scalable, and multilingual platform,
+            empowering business teams to manage content independently.
+          </p>
+          <Image
+            src='/assets/projects/nuskin/cms-comparison.png'
+            alt='CMS comparison'
+            height={458}
+            width={892}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 1: traditional vs headless CMS
           </p>
         </section>
 
         <section id={styles['problem']}>
-          <h2 className={styles.sectionTitle}>Key Features & Work Areas</h2>
+          <h2 className={styles.sectionTitle}>My Role</h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
-              <Bullet />
-              Component Development: Built reusable UI components like cards,
-              banners, buttons, etc., from Figma designs in both React and
-              Storybook.
+              <span className={styles.linkSpan}>
+                1. Implemented a{' '}
+                <Link
+                  href='#microfrontend'
+                  scroll={true}
+                  className={clsx(
+                    styles['reveal'],
+                    styles['bold'],
+                    styles['reveal-link']
+                  )}
+                >
+                  micro-frontend architecture
+                </Link>{' '}
+                with Module Federation to enable independent deployment and
+                seamless integration of React, Vue, and Next.js sub-apps.
+              </span>
             </li>
             <li className={styles['list-item']}>
-              <Bullet />
-              Component Testing: Wrote test cases for a range of shared
-              components using Jest and React Testing Library.
+              <span className={styles.linkSpan}>
+                2. Developed custom{' '}
+                <Link
+                  href='#widget'
+                  scroll={true}
+                  className={clsx(
+                    styles['reveal'],
+                    styles['bold'],
+                    styles['reveal-link']
+                  )}
+                >
+                  CMS widget
+                </Link>{' '}
+                to streamline content management and empower content writing
+                teams to work efficiently.
+              </span>
             </li>
             <li className={styles['list-item']}>
-              <Bullet />
-              CMS Integration: Pulled dynamic content from Contentstack,
-              integrating it into the UI via API calls.
+              <span className={styles.linkSpan}>
+                3. Built reusable UI components (e.g., cart,{' '}
+                <Link
+                  href='#ui-components'
+                  scroll={true}
+                  className={clsx(
+                    styles['reveal'],
+                    styles['bold'],
+                    styles['reveal-link']
+                  )}
+                >
+                  product cards
+                </Link>{' '}
+                ) following Test-Driven Development (TDD) to ensure reliability
+                and maintainability.
+              </span>
             </li>
             <li className={styles['list-item']}>
-              <Bullet />
-              Microfrontend Architecture: Worked on integrating modules
-              developed in Vue.js into the main React application using
-              microfrontend techniques.
+              4. Documented and published UI components in Storybook and
+              distributed them as internal NPM packages, improving consistency
+              and reusability across teams.
             </li>
             <li className={styles['list-item']}>
-              <Bullet />
-              Analytics Setup: Integrated Google Analytics to track CMS-driven
-              content behavior.{' '}
+              <span className={styles.linkSpan}>
+                5. Integrated event-driven analytics with{' '}
+                <Link
+                  href='#gtm'
+                  scroll={true}
+                  className={clsx(
+                    styles['reveal'],
+                    styles['bold'],
+                    styles['reveal-link']
+                  )}
+                >
+                  Google Tag Manager
+                </Link>{' '}
+                (GTM) to capture user interactions and improve tracking
+                accuracy.
+              </span>
             </li>
           </ul>
         </section>
 
-        <section id={styles['solution']}>
-          <h2 className={styles.sectionTitle}>Challenges & Solutions</h2>
+        <section id='microfrontend'>
+          <h2 className={styles.sectionTitle}>Micro-frontend architecture</h2>
+          <p>
+            I implemented a Micro-frontend architecture using Webpack Module
+            Federation, allowing teams to build and deploy independent
+            sub-applications (React, Vue, Next.js) that seamlessly integrate at
+            runtime.
+          </p>
+          <Image
+            src='/assets/projects/nuskin/micro-frontend.png'
+            alt='microfrontend'
+            height={478}
+            width={586}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 2: Injecting remote apps at runtime
+          </p>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
-              Framework Interoperability: Learned and implemented microfrontend
-              techniques to allow React and Vue components to coexist in the
-              same project.
+              Each business domain (e.g., product catalog, cart, checkout)
+              became a separate micro-app.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />A host container dynamically loads these micro-apps at
+              runtime.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Complex Nested Object Validation: Successfully completed a deep
-              object comparison and validation task involving large, deeply
-              nested objects—something even senior developers found challenging.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Scalability of Components: Ensured components were modular, styled
-              independently, and fully documented in Storybook for easy adoption
-              by other teams.
+              Shared libraries (e.g., React, utilities) are managed centrally to
+              reduce duplication
             </li>
           </ul>
+          <Image
+            src='/assets/projects/nuskin/micro-frontend-lld.png'
+            alt='microfrontend'
+            height={599}
+            width={636}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 3: A high level conceptual diagram
+          </p>
+        </section>
+        <section id='widget'>
+          <h2 className={styles.sectionTitle}>Custom Plugins & Widgets</h2>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Parsed JSON content into interactive nested boxes with titles,
+              child elements, and selection checkboxes.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Implemented real-time JSON regeneration based on selections,
+              preserving correct nesting levels.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Added locale management UI with checkboxes and API integration to
+              copy selected JSON across multiple locales.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Enhanced usability by visualizing modular blocks with dashed
+              borders and selection counts for each level.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Impact: Empowered non-technical teams to handle complex content
+              migrations and locale syncing with minimal developer involvement
+            </li>
+          </ul>
+          <Image
+            src='/assets/projects/nuskin/widget.png'
+            alt='custom widget'
+            height={599}
+            width={587}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 4: Screenshot of the widget I created in Content Stack
+          </p>
+          <p>
+            I also developed a custom ContentStack plugin to parse Excel files,
+            enabling editable and draggable cells for seamless content
+            management.
+          </p>
+          <Image
+            src='/assets/projects/nuskin/csv-plugin.webp'
+            alt='csv plugin'
+            height={599}
+            width={587}
+            className={clsx(styles['caseStudyImage'], styles['round-border'])}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 5: CSV plugin in action
+          </p>
+        </section>
+
+        <section id='ui-components'>
+          <h2 className={styles.sectionTitle}>UI Components</h2>
+          <p>
+            I built reusable UI components (e.g., cart, product cards) following
+            Test-Driven Development (TDD) to ensure reliability and
+            maintainability.
+          </p>
+          <Image
+            src='/assets/projects/nuskin/ui-component-development-flow.png'
+            alt='ui component development flow'
+            height={208}
+            width={587}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <Image
+            src='/assets/projects/nuskin/ui-component-development-flow-detailed.png'
+            alt='ui component development flow'
+            height={837}
+            width={587}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <Link
+            href='https://www.npmjs.com/package/@nuskin/foundation-ui-components'
+            target='_blank'
+            className={clsx(
+              styles['reveal'],
+              styles['bold'],
+              styles['reveal-link'],
+              styles['out-link']
+            )}
+          >
+            npmjs.com/package/@nuskin/foundation-ui-components
+            <OutLink />
+          </Link>
+        </section>
+
+        <section id='gtm'>
+          <h2 className={styles.sectionTitle}>
+            Event-driven analytics with Google Tag Manager
+          </h2>
+          <p>
+            To measure engagement effectively, I implemented a GTM (Google Tag
+            Manager) injector that listened for frontend events (clicks, cart
+            actions, locale changes, etc.) and automatically dispatched them to
+            GTM.
+          </p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Allowed non-technical teams to define custom triggers.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Reduced dependency on developers for event tracking.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Improved tracking accuracy and gave real-time visibility into user
+              behavior.
+            </li>
+          </ul>
+          <Image
+            src='/assets/projects/nuskin/gtm.png'
+            alt='google tag manager flow'
+            height={164}
+            width={567}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 5: Google Tag Manager flow
+          </p>
         </section>
 
         <section id={styles['impact']}>
@@ -125,53 +409,26 @@ const projects = [
           </h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
-              <Bullet />
-              Contributed to establishing a robust, scalable design system from
-              scratch.
+              ⚡ Faster rollout of features in 35+ locales.
             </li>
             <li className={styles['list-item']}>
-              <Bullet />
-              Improved developer efficiency through well-tested, reusable
-              components.
+              ✅ Non-technical teams now self-manage workflows.
             </li>
             <li className={styles['list-item']}>
-              <Bullet />
-              Enabled CMS-driven dynamic content integration that allowed
-              business users to manage and preview site content easily.
+              🔁 Consistent UI across React, Vue, and Next.js apps.
             </li>
             <li className={styles['list-item']}>
-              <Bullet />
-              Ensured seamless tracking and user interaction analytics with GA
-              integration.
+              📊 Actionable analytics from GTM integration.
             </li>
           </ul>
-        </section>
-
-        <section id={styles['ownership']}>
-          <h2
-            className={clsx(
-              styles['color'],
-              styles['font-size-title'],
-              styles.sectionTitle
-            )}
-          >
-            Collaboration & Growth
-          </h2>
-          <p>
-            While initially shadowing a senior developer, I quickly took
-            ownership of key modules and was trusted with complex tasks like
-            deep object validation and framework integration. The successful
-            completion of a critical debugging task earned me recognition and
-            significantly boosted my confidence in handling production-level
-            code independently.
-          </p>
         </section>
       </>
     ),
     images: [
-      '/assets/projects/shashvat/1.png',
-      '/assets/projects/shashvat/2.png',
-      '/assets/projects/shashvat/3.png',
+      '/assets/projects/nuskin/1.png',
+      '/assets/projects/nuskin/2.png',
+      '/assets/projects/nuskin/3.png',
+      '/assets/projects/nuskin/4.png',
     ],
     techStack: [
       { src: StorybookIcon, alt: 'Storybook' },
@@ -180,7 +437,6 @@ const projects = [
       { src: NextJsIcon, alt: 'Next Js' },
     ],
   },
-
   {
     id: '02',
     title: 'Dynamic Diet',

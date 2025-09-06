@@ -21,27 +21,41 @@ const Home = () => {
         </div>
 
         <div className={styles.leftSection}>
-          <div className={styles.introSection}>
-            <div className={styles.namasteWrapper}>
-              <NamasteText
-                texts={texts}
-                intervalMs={3000}
-                style={{
-                  color: 'rgb(230, 191, 116)',
-                  fontFamily: 'Inconsolata',
-                  fontSize: 'var(--namaste-font-size)',
-                  fontWeight: 700,
-                  width: '100%',
-                  textAlign: 'left',
-                  whiteSpace: 'nowrap',
-                }}
-              />
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 20,
+            }}
+          >
+            <Image
+              src='/assets/common/bg.webp'
+              height={100}
+              width={100}
+              alt='face animation'
+              className={styles.desktopOnly}
+            />
+            <div className={styles.introSection}>
+              <div className={styles.namasteWrapper}>
+                <NamasteText
+                  texts={texts}
+                  intervalMs={3000}
+                  style={{
+                    color: 'rgb(230, 191, 116)',
+                    fontFamily: 'Inconsolata',
+                    fontSize: 'var(--namaste-font-size)',
+                    fontWeight: 700,
+                    width: '100%',
+                    textAlign: 'left',
+                    whiteSpace: 'nowrap',
+                  }}
+                />
+              </div>
+
+              <h1 className={styles.nameText}>I&apos;m Ishvendra</h1>
+              <p className={styles.titleText}>a software developer</p>
             </div>
-
-            <h1 className={styles.nameText}>I&apos;m Ishvendra</h1>
-            <p className={styles.titleText}>a software developer</p>
           </div>
-
           <div className={clsx(styles.desktopOnly, styles.desktopOnlySection)}>
             <div className={styles.descriptionSection}>
               <p className={styles.descriptionText}>
@@ -51,10 +65,6 @@ const Home = () => {
               <p className={styles.descriptionText}>
                 I like solving problems, questioning defaults, and experimenting
                 with new ideas.
-              </p>
-              <p className={styles.descriptionText}>
-                Beyond code, my interests range from the vastness of astronomy
-                to the depths of self-knowledge and philosophical inquiry.
               </p>
             </div>
 

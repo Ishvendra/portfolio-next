@@ -19,9 +19,30 @@
   gap: 10px;
 }
 
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .sectionTitle {
   margin-bottom: 10px;
   margin-top: 10px;
+  color: #ffffff;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.6),
+    0 0 6px rgba(255, 255, 255, 0.4);
+  animation: subtlePulse 2s infinite alternate;
+}
+
+@keyframes subtlePulse {
+  from {
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.2),
+      0 0 6px rgba(255, 255, 255, 0.3);
+  }
+  to {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.65),
+      0 0 8px rgba(255, 255, 255, 0.25);
+  }
 }
 
 .content-body {
@@ -29,6 +50,17 @@
   display: flex;
   min-height: 0;
   width: 100%;
+}
+
+.linkSpan {
+  align-items: center;
+  align-content: center;
+}
+
+.reveal-link {
+  text-decoration: underline;
+  display: inline; /* not block or inline-block */
+  white-space: normal;
 }
 
 .nav {
@@ -42,6 +74,7 @@
 .content-container {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .overview-container,
@@ -373,6 +406,43 @@
   margin-bottom: 10px;
 }
 
+.list-item-limitations {
+  color: #ff8d8d;
+}
+
+.imageContainer {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.objectContain {
+  object-fit: contain;
+}
+
+.caseStudyImage {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.figure-caption {
+  text-align: center;
+  margin-bottom: 10px !important;
+}
+
+.out-link {
+  width: 100%;
+  color: #ff7a7a;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: none;
+}
+
+.round-border {
+  border-radius: 8px;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -524,10 +594,8 @@
 
 .fade-out {
   opacity: 0;
-  /* transition: opacity 0.8s ease-in-out; */
 }
 
-/* Scribble reveal animation styling */
 .scribble-text {
   display: inline-block;
   font-family: inherit;
@@ -543,7 +611,6 @@
   visibility: visible;
 }
 
-/* Image reveal animations */
 .img-hidden {
   opacity: 0;
   transform: translateY(10px);
@@ -556,7 +623,6 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Add an optional blinking cursor effect during scribble */
 @keyframes blink {
   0%,
   100% {
@@ -568,7 +634,7 @@
 }
 
 .reveal {
-  color: #cdcdcd;
+  color: #d6bb9c;
   --g: no-repeat linear-gradient(#520000e4 0 0) 0 0;
   background: var(--g), var(--g);
   background-size: 0 100%;
@@ -587,11 +653,13 @@
     opacity: 1;
   }
 }
+
 @keyframes t {
   to {
     background-size: 150% 100%;
   }
 }
+
 @keyframes b {
   to {
     background-position: -200% 0, 0 0;
@@ -863,12 +931,12 @@
   }
 
   .tech-stack-container {
-    height: auto;
+    height: fit-content;
     padding: 10px;
     gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: 120px;
   }
 
   .techImages {
@@ -904,18 +972,17 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px; /* Adjust height as needed */
+    height: 60px;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background-color: rgba(10, 10, 10, 0.4); /* Example background */
+    background-color: rgba(10, 10, 10, 0.4);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid rgb(37, 37, 37);
     z-index: 1000;
   }
 
-  /* 4. Display the new mobile navigation container */
   .mobile-nav-footer {
     display: flex;
     justify-content: space-around;
@@ -924,7 +991,6 @@
     height: 100%;
   }
 
-  /* 5. Style the new navigation buttons and links */
   .mobile-nav-btn {
     font-family: 'aesthetic', sans-serif;
     font-size: 1rem;
@@ -946,8 +1012,16 @@
     cursor: not-allowed;
   }
 
-  /* 6. Add padding to the bottom of the content to prevent the fixed footer from covering it */
   .content-container {
-    padding-bottom: 80px; /* Should be more than the footer height */
+    padding-bottom: 80px;
+  }
+
+  .tech-stack-container {
+    height: fit-content;
+    padding: 10px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 60px;
   }
 }

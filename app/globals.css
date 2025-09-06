@@ -24,8 +24,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0b0b0b;
-
   background-size: cover;
+  color: #e2e2e2;
 }
 
 @font-face {
@@ -527,4 +527,11 @@ code {
 .swiper-button-prev::after {
   content: '' !important;
   display: none !important;
+}
+
+@media (max-width: 786px) {
+  .social-media-links:hover {
+    transform: scale(1);
+    font-weight: 700;
+  }
 }

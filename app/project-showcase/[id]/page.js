@@ -22,7 +22,6 @@ const ProjectShowcasePage = ({ params }) => {
   const router = useRouter();
 
   const [isVisible, setIsVisible] = useState(false);
-  const [showHint, setShowHint] = useState(false);
 
   const overviewRef = useRef(null);
   const featuresRef = useRef(null);
@@ -48,7 +47,8 @@ const ProjectShowcasePage = ({ params }) => {
 
     const handleScroll = (container) => {
       if (!container) return;
-      const onScroll = () => {
+
+      const checkScrollState = () => {
         if (
           container.scrollHeight - container.scrollTop <=
           container.clientHeight + 1
@@ -58,35 +58,26 @@ const ProjectShowcasePage = ({ params }) => {
           container.classList.remove(styles['no-mask']);
         }
       };
-      container.addEventListener('scroll', onScroll);
-      onScroll();
-      return () => container.removeEventListener('scroll', onScroll);
+
+      container.addEventListener('scroll', checkScrollState);
+
+      const resizeObserver = new ResizeObserver(() => {
+        checkScrollState();
+      });
+
+      resizeObserver.observe(container);
+
+      checkScrollState();
+
+      return () => {
+        container.removeEventListener('scroll', checkScrollState);
+        resizeObserver.disconnect();
+      };
     };
 
     const cleanups = containers.map((c) => handleScroll(c));
     return () => cleanups.forEach((fn) => fn && fn());
-  }, [id]);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const cycleHint = () => {
-      if (!isMounted) return;
-      setShowHint(true);
-      setTimeout(() => {
-        if (!isMounted) return;
-        setShowHint(false);
-      }, 5000);
-      setTimeout(cycleHint, 15000);
-    };
-
-    const timer = setTimeout(cycleHint, 10000);
-    return () => {
-      isMounted = false;
-      clearTimeout(timer);
-    };
-  }, []);
-
+  }, [id, isVisible]);
   if (projectIndex === -1) {
     return <NotFound />;
   }
