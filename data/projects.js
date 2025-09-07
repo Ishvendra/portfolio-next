@@ -77,7 +77,7 @@ const projects = [
             consistency.
           </p>
           <Image
-            src='/assets/projects/nuskin/limitations.png'
+            src='/assets/projects/nuskin/limitations.webp'
             alt='traditional CMS limitations'
             height={198}
             width={600}
@@ -92,7 +92,7 @@ const projects = [
             </strong>
           </p>
           <Image
-            src='/assets/projects/nuskin/cms-comparison.png'
+            src='/assets/projects/nuskin/cms-comparison.webp'
             alt='CMS comparison'
             height={458}
             width={892}
@@ -202,7 +202,7 @@ const projects = [
             runtime.
           </p>
           <Image
-            src='/assets/projects/nuskin/micro-frontend.png'
+            src='/assets/projects/nuskin/micro-frontend.webp'
             alt='microfrontend'
             height={478}
             width={586}
@@ -235,7 +235,7 @@ const projects = [
             </li>
           </ul>
           <Image
-            src='/assets/projects/nuskin/micro-frontend-lld.png'
+            src='/assets/projects/nuskin/micro-frontend-lld.webp'
             alt='microfrontend'
             height={599}
             width={636}
@@ -282,7 +282,7 @@ const projects = [
             </li>
           </ul>
           <Image
-            src='/assets/projects/nuskin/widget.png'
+            src='/assets/projects/nuskin/widget.webp'
             alt='custom widget'
             height={599}
             width={587}
@@ -330,7 +330,7 @@ const projects = [
             maintainability.
           </p>
           <Image
-            src='/assets/projects/nuskin/ui-component-development-flow.png'
+            src='/assets/projects/nuskin/ui-component-development-flow.webp'
             alt='ui component development flow'
             height={208}
             width={587}
@@ -338,7 +338,7 @@ const projects = [
             priority
           />
           <Image
-            src='/assets/projects/nuskin/ui-component-development-flow-detailed.png'
+            src='/assets/projects/nuskin/ui-component-development-flow-detailed.webp'
             alt='ui component development flow'
             height={837}
             width={587}
@@ -386,7 +386,7 @@ const projects = [
             </li>
           </ul>
           <Image
-            src='/assets/projects/nuskin/gtm.png'
+            src='/assets/projects/nuskin/gtm.webp'
             alt='google tag manager flow'
             height={164}
             width={567}
@@ -432,10 +432,10 @@ const projects = [
       </>
     ),
     images: [
-      '/assets/projects/nuskin/1.png',
-      '/assets/projects/nuskin/2.png',
-      '/assets/projects/nuskin/3.png',
-      '/assets/projects/nuskin/4.png',
+      '/assets/projects/nuskin/1.webp',
+      '/assets/projects/nuskin/2.webp',
+      '/assets/projects/nuskin/3.webp',
+      '/assets/projects/nuskin/4.webp',
     ],
     techStack: [
       { src: StorybookIcon, alt: 'Storybook' },
@@ -494,7 +494,7 @@ const projects = [
             real-time analytics, streamlined booking, and secure data handling.
           </p>
           <Image
-            src='/assets/projects/diet-crm/flowchart.png'
+            src='/assets/projects/diet-crm/flowchart.webp'
             alt='Dynamic diet flowchart'
             height={452}
             width={600}
@@ -609,7 +609,7 @@ const projects = [
             </li>
           </ul>
           <Image
-            src='/assets/projects/diet-crm/active-packages.png'
+            src='/assets/projects/diet-crm/active-packages.webp'
             alt='active packages'
             height={452}
             width={718}
@@ -626,7 +626,7 @@ const projects = [
             Fig 3: Active plans at a glance
           </p>
           <Image
-            src='/assets/projects/diet-crm/invoice.png'
+            src='/assets/projects/diet-crm/invoice.webp'
             alt='invoice management system'
             height={452}
             width={612}
@@ -688,10 +688,10 @@ const projects = [
       </>
     ),
     images: [
-      '/assets/projects/diet-crm/1.png',
-      '/assets/projects/diet-crm/2.png',
-      '/assets/projects/diet-crm/3.png',
-      '/assets/projects/diet-crm/4.png',
+      '/assets/projects/diet-crm/1.webp',
+      '/assets/projects/diet-crm/2.webp',
+      '/assets/projects/diet-crm/3.webp',
+      '/assets/projects/diet-crm/4.webp',
     ],
     techStack: [
       { src: NextJsIcon, alt: 'Next JS' },
@@ -729,54 +729,147 @@ const projects = [
     sections: (
       <>
         <section id={styles['my-role']}>
-          <h2 className={styles.sectionTitle}>My Role</h2>
+          <h2 className={styles.sectionTitle}>Project Background</h2>
           <p>
-            <strong className={styles.reveal}>
-              I led the end-to-end development of this project
-            </strong>{' '}
-            , collaborating with 2 backend developers and 1 additional frontend
-            developer. I was responsible for key modules, architectural
-            decisions, library/tool adoption, code modularity, and later took
-            over client communication and requirement analysis for subsequent
-            phases.
+            Travel businesses using generic software{' '}
+            <strong className={styles.reveal}>lacked flexibility.</strong> Every
+            client had different requirements, but most CRMs were rigid and hard
+            to customize.
+          </p>
+          <p className={styles['mt-10']}>
+            Goal: Build a multi-tenant CRM platform with{' '}
+            <strong className={styles.reveal}>configurable features,</strong>{' '}
+            modular UI, and secure client handling.
           </p>
         </section>
 
         <section id={styles['problem']}>
-          <h2 className={styles.sectionTitle}>
-            Key Features & Modules Developed
-          </h2>
+          <h2 className={styles.sectionTitle}>Highlights</h2>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
-              Analytics Dashboard: Custom visualizations using ApexCharts and
-              dynamic widgets.
+              Created scalable frontend architecture supporting multiple
+              tenants.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              <span className={styles.reveal}>Enquiry Module: </span>Complex
-              forms with React Hook Form, Yup validation, dynamic fields.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Todo Module: Task tracking specific to enquiries or clients.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Pax & Invoice Management: Generate and export invoices with PDF
-              support.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              User & Role Management: Multi-user support with custom
-              permissions.
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Other Modules: Calendar, Packages, Itineraries,
-              Inclusions/Exclusions, Reports, Assets, Organization Settings.
+              Allowed easy integration of new modules without breaking existing
+              flows.
             </li>
           </ul>
+          <Image
+            src='/assets/projects/tour-touch/configurable-ui.webp'
+            alt='configurable ui'
+            height={162}
+            width={600}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 1: Configurable UI
+          </p>
+          <p>Configurable UI per Tenant</p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Dynamic feature toggling (show/hide features based on tenant
+              settings).
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Reduced need for tenant-specific forks.
+            </li>
+          </ul>
+          <Image
+            src='/assets/projects/tour-touch/api-architecture.webp'
+            alt='api architecture'
+            height={460}
+            width={600}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 2: API architecture
+          </p>
+          <p>Standardized API Layer</p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Architected API layer using React Query + Axios.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Caching, retries, and unified error handling → adopted in other
+              projects too.
+            </li>
+          </ul>
+          <Image
+            src='/assets/projects/tour-touch/report-module.webp'
+            alt='report module'
+            height={559}
+            width={600}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 3: Agent wise report module
+          </p>
+          <p>Secure Frontend Authentication</p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet /> Token handling, session management, and role-based
+              access.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet /> Ensured data protection for tenant-specific
+              information.
+            </li>
+          </ul>
+          <p>Travel Interfaces</p>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet /> Developed interfaces for itinerary, package, and
+              invoice management.
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet /> Streamlined workflows for travel agencies.
+            </li>
+          </ul>
+          <Image
+            src='/assets/projects/tour-touch/enquiry-form.webp'
+            alt='enquiry form module'
+            height={535}
+            width={600}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 4: Enquiry Form module
+          </p>
         </section>
 
         <section id={styles['solution']}>
@@ -845,31 +938,13 @@ const projects = [
             </li>
           </ul>
         </section>
-
-        <section id={styles['ownership']}>
-          <h2
-            className={clsx(
-              styles['color'],
-              styles['font-size-title'],
-              styles.sectionTitle
-            )}
-          >
-            Client Communication & Ownership
-          </h2>
-          <p>
-            Though initial requirement gathering was done by seniors, I
-            eventually took over full client communication, starting from Phase
-            1.1 and continuing into Phase 2. I handled clarification meetings,
-            client demos, and ensured timely delivery. I also maintained and
-            updated the project post-deployment.
-          </p>
-        </section>
       </>
     ),
     images: [
-      '/assets/projects/travel-crm/1.png',
-      '/assets/projects/travel-crm/2.png',
-      '/assets/projects/travel-crm/3.png',
+      '/assets/projects/tour-touch/1.webp',
+      '/assets/projects/tour-touch/2.webp',
+      '/assets/projects/tour-touch/3.webp',
+      '/assets/projects/tour-touch/4.webp',
     ],
     techStack: [
       { src: NextJsIcon, alt: 'Next JS' },
@@ -888,10 +963,10 @@ const projects = [
         <main className={styles.color}>
           <section>
             <p>
-              <span className={styles.reveal}>Shashvat Mobile App</span> is a
-              school communication and management platform built for parents,
-              students, and staff to interact through features like chat,
-              notifications, and profile management. Designed as a{' '}
+              <span className={styles.reveal}>Shashvat Mobile App</span> is an
+              offline-first school communication and management platform built
+              for parents, students, and staff to interact through features like
+              chat, notifications, and profile management. Designed as a{' '}
               <span className={styles.reveal}>lightweight mobile solution</span>{' '}
               using React Native, it prioritizes smooth user experience and
               performance on lower-end devices.
@@ -905,8 +980,8 @@ const projects = [
             <p className={styles['mb-10']}>
               Schools struggled with offline notices, fragmented communication,
               and lack of real-time updates. Shashvat Connect was designed to
-              digitize school interactions, reduce paperwork, and improve
-              student engagement.
+              digitize school interactions, reduce paperwork, and improve{' '}
+              <span className={styles.highlight}>student engagement.</span>
             </p>
           </section>
         </main>
@@ -915,12 +990,47 @@ const projects = [
     sections: (
       <>
         <section id={styles['my-role']}>
-          <h2 className={styles.sectionTitle}>My Role</h2>
+          <h2 className={styles.sectionTitle}>Project Background</h2>
           <p>
-            I was part of the frontend team and contributed extensively to core
-            functionality and UI/UX. I developed custom components, worked on
-            chat systems, handled local data storage, and integrated frontend
-            notification triggers.
+            Shashvat Connect is a{' '}
+            <strong className={styles.reveal}>community-driven</strong> platform
+            where I contributed to building a scalable, real-time messaging
+            experience with offline-first reliability and{' '}
+            <strong className={styles.reveal}>flexible feature</strong>{' '}
+            rollouts.
+          </p>
+        </section>
+        <section id={styles['my-role']}>
+          <h2 className={styles.sectionTitle}>My Role</h2>
+          <ul className={styles.list}>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Frontend Mobile Developer (React Native)
+            </li>
+            <li className={styles['list-item']}>
+              <Bullet />
+              Focus: Real-time chat, offline-first storage,{' '}
+              <strong className={styles.reveal}>
+                performance optimization.
+              </strong>
+            </li>
+          </ul>
+          <Image
+            src='/assets/projects/shashvat/fcm.webp'
+            alt='Firebase Cloud Messaging'
+            height={286}
+            width={600}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 1: Firebase Cloud Messaging
           </p>
         </section>
 
@@ -951,6 +1061,23 @@ const projects = [
               notifications via Firebase.
             </li>
           </ul>
+          <Image
+            src='/assets/projects/shashvat/user-journey.webp'
+            alt='User journey flow'
+            height={383}
+            width={800}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 2: User journey for Logging and Chatting
+          </p>
         </section>
 
         <section id={styles['solution']}>
@@ -1012,45 +1139,12 @@ const projects = [
             </li>
           </ul>
         </section>
-
-        <section id={styles['ownership']}>
-          <h2
-            className={clsx(
-              styles['color'],
-              styles['font-size-title'],
-              styles.sectionTitle
-            )}
-          >
-            Collaboration & Ownership
-          </h2>
-          <p>
-            While I collaborated closely with other frontend team members, I
-            independently handled:
-          </p>
-          <ul className={styles.list}>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Chat module end-to-end
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              UI/UX design for key screens
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Frontend logic for notifications:
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              My code became a reference for best practices in optimizing
-              performance and modularity for future mobile projects in the
-              company.
-            </li>
-          </ul>
-        </section>
       </>
     ),
-    // images: [],
+    images: [
+      '/assets/projects/shashvat/1.webp',
+      '/assets/projects/shashvat/2.webp',
+    ],
     techStack: [
       { src: RealmIcon, alt: 'Realm DB' },
       { src: FirebaseIcon, alt: 'Firebase' },
