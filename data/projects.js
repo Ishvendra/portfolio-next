@@ -83,6 +83,8 @@ const projects = [
             width={600}
             className={styles.caseStudyImage}
             priority
+            placeholder='blur'
+            blurDataURL='/assets/projects/nuskin/blur/limitations.webp'
           />
           <p>
             Goal: Build a flexible, scalable, and multilingual platform,
@@ -98,6 +100,8 @@ const projects = [
             width={892}
             className={styles.caseStudyImage}
             priority
+            placeholder='blur'
+            blurDataURL='/assets/projects/nuskin/blur/cms-comparison.webp'
           />
           <p
             className={clsx(

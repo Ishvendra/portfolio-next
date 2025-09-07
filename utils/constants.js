@@ -41,7 +41,7 @@ export const projects = [
 export const socials = [
   {
     name: 'Resume',
-    link: 'https://drive.google.com/file/d/1NsQYbNDFqJVv1TzMjpJfXFfIPkDxeqrJ/view?usp=sharing',
+    link: 'https://drive.google.com/file/d/1Lu2mNFQ38XOwRJ6JYNEzeKgqaSAAm3AK/view?usp=sharing',
   },
   {
     name: 'LinkedIn',
