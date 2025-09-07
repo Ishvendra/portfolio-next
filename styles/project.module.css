@@ -431,14 +431,6 @@
   margin-bottom: 10px !important;
 }
 
-.out-link {
-  width: 100%;
-  color: #ff7a7a;
-  text-align: center;
-  margin-bottom: 10px;
-  text-shadow: none;
-}
-
 .round-border {
   border-radius: 8px;
 }
@@ -689,6 +681,10 @@
 
 .mt-4 {
   margin-top: 4px;
+}
+
+.mt-10 {
+  margin-top: 10px;
 }
 
 .my-4 {
@@ -1024,4 +1020,13 @@
     justify-content: center;
     margin-bottom: 60px;
   }
+}
+
+.out-link {
+  width: 100%;
+  display: block;
+  color: #ff6868;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: none;
 }

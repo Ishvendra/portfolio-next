@@ -56,8 +56,10 @@ const projects = [
             <p>
               Additionally, we enabled non-technical teams, such as content
               writers, to efficiently manage content in ContentStack with
-              minimal developer intervention by creating custom plugins and
-              extensions.
+              minimal developer intervention by creating custom plugins and{' '}
+              <span className={clsx(styles['bold'], styles['highlight'])}>
+                extensions.
+              </span>
             </p>
           </section>
         </main>
@@ -69,8 +71,10 @@ const projects = [
           <h2 className={styles.sectionTitle}>Project Background</h2>
           <p>
             The existing CMS had severe customization limits. Small changes
-            required developer intervention, slowing down workflows. Expanding
-            to multiple locales made it even harder to maintain consistency.
+            required developer intervention,{' '}
+            <strong className={styles.reveal}>slowing down workflows.</strong>{' '}
+            Expanding to multiple locales made it even harder to maintain
+            consistency.
           </p>
           <Image
             src='/assets/projects/nuskin/limitations.png'
@@ -82,7 +86,10 @@ const projects = [
           />
           <p>
             Goal: Build a flexible, scalable, and multilingual platform,
-            empowering business teams to manage content independently.
+            empowering business teams to{' '}
+            <strong className={styles.reveal}>
+              manage content independently.
+            </strong>
           </p>
           <Image
             src='/assets/projects/nuskin/cms-comparison.png'
@@ -472,108 +479,86 @@ const projects = [
     sections: (
       <>
         <section id={styles['my-role']}>
+          <h2 className={styles.sectionTitle}>Project Background</h2>
+          <p>
+            Dieticians & trainers were relying on manual PDF creation, email
+            sending, and spreadsheets to track{' '}
+            <strong className={styles.reveal}>
+              client progress and potential leads.
+            </strong>{' '}
+            This was slow, error-prone, and consumed a lot of admin time.
+          </p>
+          <p className={styles['mt-10']}>
+            Goal: Automate client management with{' '}
+            <strong className={styles.reveal}>dynamic diet plans</strong>{' '}
+            real-time analytics, streamlined booking, and secure data handling.
+          </p>
+          <Image
+            src='/assets/projects/diet-crm/flowchart.png'
+            alt='Dynamic diet flowchart'
+            height={452}
+            width={600}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 1: Dynamic Diet Application flowchart
+          </p>
+        </section>
+        <section id={styles['my-role']}>
           <h2 className={styles.sectionTitle}>My Role</h2>
           <p>
             <strong className={styles.reveal}>
-              I led the end-to-end development of this project
+              From requirement gathering{' '}
             </strong>{' '}
-            from initial requirement gathering and client communication to final
-            delivery and post-launch maintenance.{' '}
+            to final delivery and post-launch maintenance. I was the primary
+            point of contact for all technical discussions, collaborating
+            closely with stakeholders across different phases to shape the{' '}
             <strong className={styles.reveal}>
-              I was the primary point of contact for all{' '}
+              product vision into a working solution.
             </strong>
-            technical discussions, collaborating closely with stakeholders
-            across different phases to shape the product vision into a working
-            solution.
           </p>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
-              UI/UX design and frontend development
+              Architected the complete front-end solution.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Direct client interaction for feedback loops
+              Developed PDF and email automation workflows.
             </li>
             <li className={styles['list-item']}>
               <Bullet />
-              Feature planning, estimation, and prioritization
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Integrations and deployment
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Ongoing bug fixes and improvements
+              Integrated appointment scheduling.
             </li>
           </ul>
-        </section>
-
-        <section id={styles['problem']}>
-          <h2 className={styles.sectionTitle}>The Problem</h2>
-          <p>
-            The consultancy was managing client information, orders, and
-            follow-ups manually across spreadsheets and communication platforms.
-            This led to:
+          <Image
+            src='/assets/projects/diet-crm/pdf-email.webp'
+            alt='Email and PDF flow'
+            height={338}
+            width={600}
+            className={clsx(styles['caseStudyImage'], styles['round-border'])}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 2: Pdf and Email automation workflow
           </p>
-          <ul className={styles.list}>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Inefficient tracking of client progress and consultations
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              <span className={styles.reveal}>Delayed communication</span> of
-              diet plans and updates
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              No centralized system for viewing or analyzing client data
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Scattered workflows across nutritionists, order handlers, and
-              administrators
-            </li>
-          </ul>
-        </section>
-
-        <section id={styles['solution']}>
-          <h2 className={styles.sectionTitle}>The Solution</h2>
-          <p>We designed and developed a tailored CRM platform that:</p>
-          <ul className={styles.list}>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Centralized all client data in a secure, accessible system
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Automated order processing and diet plan distribution
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Enabled filtered views of clients by status, type, or assigned
-              consultant
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Integrated email functionality to send rich HTML + PDF attachments
-            </li>
-            <li className={styles['list-item']}>
-              <Bullet />
-              Provided a scalable, modular structure to evolve with business
-              needs
-            </li>
-          </ul>
         </section>
 
         <section id={styles['my-work']}>
           <h2 className={styles.sectionTitle}>Modules I Developed</h2>
-          <p>
-            I contributed to and led development of multiple critical modules,
-            including:
-          </p>
           <ul className={styles.list}>
             <li className={styles['list-item']}>
               <Bullet />
@@ -623,6 +608,40 @@ const projects = [
               Food Item Database: Master list of diet items for plan creation
             </li>
           </ul>
+          <Image
+            src='/assets/projects/diet-crm/active-packages.png'
+            alt='active packages'
+            height={452}
+            width={718}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 3: Active plans at a glance
+          </p>
+          <Image
+            src='/assets/projects/diet-crm/invoice.png'
+            alt='invoice management system'
+            height={452}
+            width={612}
+            className={styles.caseStudyImage}
+            priority
+          />
+          <p
+            className={clsx(
+              styles['underline'],
+              styles['mb-10'],
+              styles['figure-caption']
+            )}
+          >
+            Fig 4: Robust invoice management system
+          </p>
         </section>
 
         <section id={styles['impact']}>
@@ -669,11 +688,10 @@ const projects = [
       </>
     ),
     images: [
-      '/assets/projects/quality-track/1.webp',
-      '/assets/projects/quality-track/2.webp',
-      '/assets/projects/quality-track/3.webp',
-      '/assets/projects/quality-track/4.webp',
-      '/assets/projects/quality-track/5.webp',
+      '/assets/projects/diet-crm/1.png',
+      '/assets/projects/diet-crm/2.png',
+      '/assets/projects/diet-crm/3.png',
+      '/assets/projects/diet-crm/4.png',
     ],
     techStack: [
       { src: NextJsIcon, alt: 'Next JS' },
