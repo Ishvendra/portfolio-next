@@ -3,11 +3,11 @@
 import { useEffect, useRef } from 'react';
 
 export default function NamasteText({
-  texts = ['Namaste, ', 'नमस्ते, '],
   intervalMs = 2000,
   style = {},
   className = '',
 }) {
+  const texts = ['Namaste 🙏🏼', 'नमस्ते 🙏🏼'];
   const elRef = useRef(null);
   const idxRef = useRef(0);
 
@@ -23,7 +23,6 @@ export default function NamasteText({
     const id = setInterval(() => {
       if (cancelled) return;
 
-      // fade out -> change text -> fade in
       el.style.opacity = '0';
       setTimeout(() => {
         if (cancelled) return;

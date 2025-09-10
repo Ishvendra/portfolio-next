@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
     if (pathname.startsWith('/project-showcase/02')) return '_2-bg';
     if (pathname.startsWith('/project-showcase/03')) return '_3-bg';
     if (pathname.startsWith('/project-showcase/04')) return '_4-bg';
+    if (pathname.startsWith('/blog')) return '_5-bg';
     if (pathname === '/about') return '';
     return '';
   };
@@ -85,7 +86,11 @@ export default function RootLayout({ children }) {
             )}
           </>
         ) : (
-          <div className='hero'>
+          <div
+            className={`hero ${
+              pathname.startsWith('/blog') ? 'blog-page' : ''
+            }`}
+          >
             <div className='overlay' />
           </div>
         )}

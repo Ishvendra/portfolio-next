@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import createMDX from '@next/mdx';
+
 const nextConfig = {
   async headers() {
     return [
@@ -22,6 +24,25 @@ const nextConfig = {
       },
     ];
   },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.icons8.com',
+      },
+    ],
+  },
+
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  // Add markdown plugins here, if desired
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+export default withMDX(nextConfig);

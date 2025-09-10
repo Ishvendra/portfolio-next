@@ -8,10 +8,10 @@ import Arrow from '../public/assets/icons/arrow.png';
 import styles from './page.module.css';
 import HomeMeta from '@/components/HomeMeta';
 import clsx from 'clsx';
+import ProjectsGrid from '@/components/ProjectsGrid';
+import MagneticLink from '@/components/MagneticLink';
 
 const Home = () => {
-  const texts = ['Namaste 🙏🏼', 'नमस्ते 🙏🏼'];
-
   return (
     <>
       <HomeMeta />
@@ -38,7 +38,6 @@ const Home = () => {
             <div className={styles.introSection}>
               <div className={styles.namasteWrapper}>
                 <NamasteText
-                  texts={texts}
                   intervalMs={3000}
                   style={{
                     color: 'rgb(230, 191, 116)',
@@ -75,35 +74,38 @@ const Home = () => {
 
             <nav className={styles.socialsNav}>
               {socials.map((item, index) => (
-                <div className='wrapper' key={index}>
-                  <div className='inner'>
-                    <Link
-                      href={item.link}
-                      aria-label={item.name}
-                      target={item.link.startsWith('/') ? '_self' : '_blank'}
-                      rel={
-                        item.link.startsWith('/') ? '' : 'noopener noreferrer'
-                      }
-                      className='social-media-links hover-shadow hover-color'
-                      style={{
-                        height: '20px',
-                        lineHeight: '20px',
-                        fontSize: '16px',
-                      }}
-                      prefetch={item.link.startsWith('/') ? 'auto' : false}
-                    >
-                      {[...item.name].map((c, i) => (
-                        <span
-                          key={i}
-                          aria-hidden='true'
-                          style={{ display: 'inline-block' }}
-                        >
-                          {c === ' ' ? '\u00A0' : c}
-                        </span>
-                      ))}
-                    </Link>
-                  </div>
-                </div>
+                // <div className='wrapper' key={index}>
+                //   <div className='inner'>
+                //     <Link
+                //       href={item.link}
+                //       aria-label={item.name}
+                //       target={item.link.startsWith('/') ? '_self' : '_blank'}
+                //       rel={
+                //         item.link.startsWith('/') ? '' : 'noopener noreferrer'
+                //       }
+                //       className='social-media-links hover-shadow hover-color'
+                //       style={{
+                //         height: '20px',
+                //         lineHeight: '20px',
+                //         fontSize: '16px',
+                //       }}
+                //       prefetch={item.link.startsWith('/') ? 'auto' : false}
+                //     >
+                //       {[...item.name].map((c, i) => (
+                //         <span
+                //           key={i}
+                //           aria-hidden='true'
+                //           style={{ display: 'inline-block' }}
+                //         >
+                //           {c === ' ' ? '\u00A0' : c}
+                //         </span>
+                //       ))}
+                //     </Link>
+                //   </div>
+                // </div>
+                <MagneticLink href={item.link} key={item.link}>
+                  {item.name}
+                </MagneticLink>
               ))}
             </nav>
 
@@ -123,7 +125,7 @@ const Home = () => {
                 .reverse()
                 .map((project, index) => (
                   <Link
-                    key={project.name}
+                    key={`${project.name}-${index}`}
                     className={styles.projectCard}
                     href={project.link}
                   >
@@ -149,7 +151,7 @@ const Home = () => {
 
           <div className={styles.desktopOnly}>
             <div style={{ width: '100%', height: '100%' }}>
-              {projects.map((project, index) => (
+              {/* {projects.map((project, index) => (
                 <Tile
                   key={project.name}
                   idx={index}
@@ -158,7 +160,8 @@ const Home = () => {
                   link={project.link}
                   name={project.name}
                 />
-              ))}
+              ))} */}
+              <ProjectsGrid />
             </div>
           </div>
         </div>

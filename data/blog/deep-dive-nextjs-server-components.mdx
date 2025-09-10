@@ -1,0 +1,48 @@
+---
+id: deep-dive-nextjs-server-components
+title: Deep Dive into Next.js Server Components
+subTitle: A case study
+date: '2025-09-02'
+readingTime: '6'
+tags: ['nextjs', 'server-components']
+alsoRead:
+  [
+    'reconciliation-process-in-react',
+    'partial-pre-rendering-process-in-next-js',
+  ]
+---
+
+# Deep Dive into Next.js Server Components
+
+Server Components in Next.js mark a huge shift in how we think about rendering in React.  
+Unlike traditional React components that run on the client, Server Components execute **only on the server**, never shipping their JavaScript to the client.
+
+## Why does this matter?
+
+- **Less JavaScript shipped** → Faster load times.
+- **Improved data fetching** → Components can directly query databases or APIs without bundling client-side fetch logic.
+- **Better caching** → Server-rendered output can be cached at the edge.
+
+## Example
+
+```tsx
+// Example: a server component
+export default async function BlogList() {
+  const posts = await fetch('https://api.example.com/posts').then((res) => res.json());
+  return (
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+}
+This runs only on the server, so the client never sees fetch logic in the bundle.
+
+Closing thoughts
+
+Next.js Server Components represent a paradigm shift:
+They allow React apps to scale better by reducing client-side complexity while improving performance.
+
+Stay tuned for future articles where we’ll explore Partial Pre-rendering (PPR) and how it pairs beautifully with Server Components.
+```

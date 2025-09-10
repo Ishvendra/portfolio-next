@@ -370,6 +370,10 @@ a.hover-font:hover {
   background: #190d03;
 }
 
+._5-bg {
+  background: #fff;
+}
+
 code {
   font-family: nunito, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     'Inconsolata', 'monospace', monospace;
@@ -410,8 +414,11 @@ code {
   height: 300%;
   width: 300%;
   position: fixed;
-  opacity: 0.05;
+  opacity: 0.07;
   animation: animateGrain 8s steps(10) infinite;
+}
+.hero.blog-page:after {
+  animation: none; /* disables the grain animation */
 }
 
 .hero-2 {
@@ -475,7 +482,7 @@ code {
     transform: translate(-15%, -20%);
   }
 }
-/* Video fallback background */
+
 .video-fallback {
   position: fixed;
   top: 0;
@@ -487,7 +494,6 @@ code {
   pointer-events: none;
 }
 
-/* Base video styles - starts transparent */
 .bg-video {
   opacity: 0;
   transition: opacity 1.5s ease-in;
@@ -499,17 +505,14 @@ code {
   object-fit: cover;
   z-index: -1;
   pointer-events: none;
-  /* GPU acceleration for smooth transitions */
   transform: translateZ(0);
   will-change: opacity;
 }
 
-/* Loaded state - fades in */
 .bg-video.loaded {
   opacity: 0.2;
 }
 
-/* Alternative approach with CSS animation */
 @keyframes videoFadeIn {
   from {
     opacity: 0;

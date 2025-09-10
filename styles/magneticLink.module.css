@@ -1,0 +1,21 @@
+.magneticLink {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 10px;
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 17px;
+  font-weight: 400;
+}
+
+@media (max-width: 786px) {
+  .magneticLink {
+    margin-bottom: 0;
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+  }
+}

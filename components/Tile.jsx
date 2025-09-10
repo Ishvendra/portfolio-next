@@ -57,7 +57,7 @@ const Tile = ({ idx, length, images, link, name }) => {
 
   return (
     <motion.div
-      key={index}
+      key={`tile-${idx}`}
       onClick={handleClick}
       style={{
         zIndex: 100 - index,
@@ -74,7 +74,11 @@ const Tile = ({ idx, length, images, link, name }) => {
       initial='initial'
       animate='normal'
       whileHover='hover'
-      transition={{ type: 'spring', stiffness: 250, damping: 10 }}
+      transition={{
+        type: 'spring',
+        stiffness: 250,
+        damping: 10,
+      }}
     >
       <motion.img
         src={images[0]}

@@ -13,7 +13,6 @@ export const projects = [
     link: '/project-showcase/04',
     images: ['/assets/home/tile-4.webp', '/assets/home/tile-glow-4.webp'],
   },
-
   {
     name: 'Tour Touch CRM',
     description:
@@ -21,7 +20,6 @@ export const projects = [
     link: '/project-showcase/03',
     images: ['/assets/home/tile-3.webp', '/assets/home/tile-glow-3.webp'],
   },
-
   {
     name: 'Dynamic Diet CRM',
     description:
@@ -38,18 +36,27 @@ export const projects = [
   },
 ];
 
+export const socialLinks = {
+  linkedIn: 'https://www.linkedin.com/in/ishvendra-singh-82538a1b0/',
+  github: 'https://github.com/Ishvendra',
+  resume:
+    'https://drive.google.com/file/d/1Lu2mNFQ38XOwRJ6JYNEzeKgqaSAAm3AK/view?usp=sharing',
+  email: 'mailto:ishvendra@gmail.com',
+};
+
 export const socials = [
   {
     name: 'Resume',
-    link: 'https://drive.google.com/file/d/1Lu2mNFQ38XOwRJ6JYNEzeKgqaSAAm3AK/view?usp=sharing',
+    link: socialLinks.resume,
   },
   {
     name: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/ishvendra-singh-82538a1b0/',
+    link: socialLinks.linkedIn,
   },
-  { name: 'ishvendra@gmail.com', link: 'mailto:ishvendra@gmail.com' },
-  { name: 'GitHub', link: 'https://github.com/Ishvendra' },
+  { name: 'ishvendra@gmail.com', link: socialLinks.email },
+  { name: 'GitHub', link: socialLinks.github },
   { name: 'Bio', link: '/about' },
+  { name: 'Blog', link: '/blog' },
 ];
 
 export const projectFooter = [
