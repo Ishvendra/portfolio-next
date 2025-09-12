@@ -59,10 +59,17 @@
   line-height: 92%;
 }
 
+.articleContent {
+  padding-top: 10px;
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
 .subTitle {
-  font-weight: 300; /* thin font */
-  opacity: 0.8; /* optional, makes it visually lighter */
-  font-size: 0.8em; /* optional, slightly smaller */
+  font-weight: 300;
+  opacity: 0.8;
+  font-size: 0.8em;
 }
 
 .searchBar {
@@ -221,9 +228,17 @@
   font-weight: 500;
 }
 
-.formContainer {
-  /* background-color: red; */
-  /* height: 500px; */
+.readNextDesktop {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.readNextMobile {
+  display: none;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px dotted #696969;
 }
 
 @media (max-width: 1200px) {
@@ -252,6 +267,16 @@
   }
   .blogHeader {
     border-bottom: none;
+  }
+
+  .readNextDesktop {
+    display: none;
+  }
+
+  .readNextMobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, useSpring, useTransform } from 'framer-motion';
+import { motion, useSpring } from 'framer-motion';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -13,14 +13,8 @@ export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState(null);
 
-  // Advanced spring physics
-  const springX = useSpring(0, { damping: 25, stiffness: 400, mass: 0.5 });
   const springY = useSpring(0, { damping: 20, stiffness: 300, mass: 0.8 });
   const springScale = useSpring(1, { damping: 15, stiffness: 500, mass: 0.3 });
-
-  // Transform values for advanced animations
-  const rotateX = useTransform(springY, [-100, 100], [-5, 5]);
-  const rotateY = useTransform(springX, [-100, 100], [5, -5]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,17 +28,27 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      if (!res.ok) throw new Error('Failed to send message');
 
-    // Reset form after 4 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
+      setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-    }, 4000);
+
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 4000);
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleFocus = (field) => {
@@ -398,10 +402,9 @@ export default function ContactForm() {
             }}
             transition={{
               duration: 2,
-              times: [0, 0.5, 1],
-              type: 'spring',
-              damping: 20,
-              stiffness: 300,
+              ease: 'easeInOut',
+              repeat: Infinity,
+              repeatType: 'reverse',
             }}
             style={{
               width: '80px',
