@@ -45,18 +45,19 @@ export const socialLinks = {
 };
 
 export const socials = [
+  { name: 'Projects', link: '/project-showcase/01' },
+  { name: 'Blog', link: '/blog' },
+  { name: 'About', link: '/about' },
   {
     name: 'Resume',
     link: socialLinks.resume,
   },
-  { name: 'Blog', link: '/blog' },
-  { name: 'About', link: '/about' },
-  { name: 'ishvendra@gmail.com', link: socialLinks.email },
   {
     name: 'LinkedIn',
     link: socialLinks.linkedIn,
   },
   { name: 'GitHub', link: socialLinks.github },
+  { name: 'ishvendra@gmail.com', link: socialLinks.email },
 ];
 
 export const projectFooter = [
