@@ -5,7 +5,7 @@ import MagneticLink from './MagneticLink';
 import { socialLinks } from '@/utils/constants';
 import styles from '../styles/navbar.module.css';
 import GithubIcon from './icons/GithubIcon';
-import LinkedInIcon from './icons/linkedInIcon';
+import LinkedInIcon from './icons/LinkedInIcon';
 
 const LayoutNavbar = ({ pathname }) => {
   const [scrolled, setScrolled] = useState(false);
