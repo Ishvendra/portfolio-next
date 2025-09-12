@@ -25,7 +25,7 @@ const Tile = ({ idx, length, images, link, name }) => {
   }, []);
 
   const clamp01 = (n) => Math.max(0, Math.min(1, n));
-  const t = clamp01((windowWidth - 786) / (1200 - 786));
+  const t = clamp01((windowWidth - 768) / (1200 - 768));
 
   const scaleY = windowWidth < 1000 ? 1 + t * 0.5 : 0.6 + t * 0.5;
 

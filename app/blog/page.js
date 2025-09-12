@@ -3,7 +3,6 @@ import Blob1 from '@/components/Blob1';
 import Blob2 from '@/components/Blob2';
 import clsx from 'clsx';
 import SearchBar from '@/components/SearchBar';
-import BlogNavbar from '@/components/BlogNavbar';
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
@@ -54,7 +53,6 @@ export default function Blog() {
 
   return (
     <div className={clsx(styles.blogBody)}>
-      <BlogNavbar />
       <div className={styles.header}>
         <h1 className={styles.heading}>Blog.</h1>
         <SearchBar />

@@ -6,6 +6,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Inconsolata, Nunito, Noto_Sans } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import LayoutNavbar from '@/components/LayoutNavbar';
+import CursorBlendLayout from '@/components/CursorBlendLayout';
 
 const inconsolata = Inconsolata({
   subsets: ['latin'],
@@ -64,37 +66,43 @@ export default function RootLayout({ children }) {
       <body
         className={`app-container ${bgClass} text-light ${inconsolata.className} ${nunito.className} ${notoSans.className}`}
       >
-        {isHomePage ? (
-          <>
-            <div className='hero-2'>
-              <div className='overlay' />
-            </div>
-            {shouldLoadVideo && (
-              <video
-                ref={videoRef}
-                className='bg-video'
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload='none'
-                onLoadedData={handleVideoLoad}
-                onCanPlay={handleVideoLoad}
+        <CursorBlendLayout>
+          {isHomePage ? (
+            <>
+              <div className='hero-2'>
+                <div className='overlay' />
+              </div>
+              {shouldLoadVideo && (
+                <video
+                  ref={videoRef}
+                  className='bg-video'
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload='none'
+                  onLoadedData={handleVideoLoad}
+                  onCanPlay={handleVideoLoad}
+                >
+                  <source src='/assets/common/home-bg.mp4' type='video/mp4' />
+                </video>
+              )}
+            </>
+          ) : (
+            <>
+              <LayoutNavbar pathname={pathname} />
+
+              <div
+                className={`hero ${
+                  pathname.startsWith('/blog') ? 'blog-page' : ''
+                }`}
               >
-                <source src='/assets/common/home-bg.mp4' type='video/mp4' />
-              </video>
-            )}
-          </>
-        ) : (
-          <div
-            className={`hero ${
-              pathname.startsWith('/blog') ? 'blog-page' : ''
-            }`}
-          >
-            <div className='overlay' />
-          </div>
-        )}
-        {children}
+                <div className='overlay' />
+              </div>
+            </>
+          )}
+          {children}
+        </CursorBlendLayout>
         <SpeedInsights />
         <Analytics />
       </body>

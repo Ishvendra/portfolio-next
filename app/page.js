@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Tile from '../components/Tile';
 import { socials, projects } from '../utils/constants';
 import Link from 'next/link';
 import NamasteText from '@/components/NamasteText';
@@ -15,6 +14,7 @@ const Home = () => {
   return (
     <>
       <HomeMeta />
+
       <div className={styles.container}>
         <div className={styles.mobileOnly}>
           <HamburgerMenu />
@@ -74,36 +74,12 @@ const Home = () => {
 
             <nav className={styles.socialsNav}>
               {socials.map((item, index) => (
-                // <div className='wrapper' key={index}>
-                //   <div className='inner'>
-                //     <Link
-                //       href={item.link}
-                //       aria-label={item.name}
-                //       target={item.link.startsWith('/') ? '_self' : '_blank'}
-                //       rel={
-                //         item.link.startsWith('/') ? '' : 'noopener noreferrer'
-                //       }
-                //       className='social-media-links hover-shadow hover-color'
-                //       style={{
-                //         height: '20px',
-                //         lineHeight: '20px',
-                //         fontSize: '16px',
-                //       }}
-                //       prefetch={item.link.startsWith('/') ? 'auto' : false}
-                //     >
-                //       {[...item.name].map((c, i) => (
-                //         <span
-                //           key={i}
-                //           aria-hidden='true'
-                //           style={{ display: 'inline-block' }}
-                //         >
-                //           {c === ' ' ? '\u00A0' : c}
-                //         </span>
-                //       ))}
-                //     </Link>
-                //   </div>
-                // </div>
-                <MagneticLink href={item.link} key={item.link}>
+                <MagneticLink
+                  href={item.link}
+                  key={item.link}
+                  index={index}
+                  x={-300}
+                >
                   {item.name}
                 </MagneticLink>
               ))}

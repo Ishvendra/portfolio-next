@@ -6,9 +6,9 @@ import { isUnsupportedBrowser } from '@/utils/isUnsupportedBrowser';
 import useDebounce from '@/app/hooks/useDebounce';
 
 import GooeyFilter from './GooeyFilter';
-import SearchIcon from './SearchIcon';
-import LoadingIcon from './LoadingIcon';
-import CloseIcon from './CloseIcon';
+import SearchIcon from './icons/SearchIcon';
+import LoadingIcon from './icons/LoadingIcon';
+import CloseIcon from './icons/CloseIcon';
 import { dummyData } from '@/utils/dummyData';
 import '../styles/searchBars.scss';
 import clsx from 'clsx';

@@ -960,7 +960,7 @@ const projects = [
   },
   {
     id: '04',
-    title: 'Shashvat Connect Mobile App',
+    title: 'Shashvat App',
     date: 'Jan 2024',
     overview: (
       <>

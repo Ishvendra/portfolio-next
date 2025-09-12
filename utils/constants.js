@@ -7,7 +7,7 @@ export const projects = [
     images: ['/assets/home/tile-5.webp', '/assets/home/tile-glow-5.webp'],
   },
   {
-    name: 'Shashvat Connect Mobile App',
+    name: 'Shashvat App',
     description:
       'Built a high-performance cross-platform ERP with real-time chat, offline-first functionality, and remote configuration, optimizing runtime performance and scalability.',
     link: '/project-showcase/04',
@@ -49,20 +49,20 @@ export const socials = [
     name: 'Resume',
     link: socialLinks.resume,
   },
+  { name: 'Blog', link: '/blog' },
+  { name: 'About', link: '/about' },
+  { name: 'ishvendra@gmail.com', link: socialLinks.email },
   {
     name: 'LinkedIn',
     link: socialLinks.linkedIn,
   },
-  { name: 'ishvendra@gmail.com', link: socialLinks.email },
   { name: 'GitHub', link: socialLinks.github },
-  { name: 'Bio', link: '/about' },
-  { name: 'Blog', link: '/blog' },
 ];
 
 export const projectFooter = [
   { name: 'HOME', link: '/' },
   {
-    name: 'Bio',
+    name: 'About',
     link: '/about',
   },
 ];

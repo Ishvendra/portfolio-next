@@ -2,11 +2,21 @@
 
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import styles from '../styles/magneticLink.module.css';
 
-const MagneticLink = ({ children, href, className = '', magneticStrength }) => {
+const MagneticLink = ({
+  children,
+  href,
+  className = '',
+  magneticStrength,
+  index,
+  x = 0,
+  y = 0,
+}) => {
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   const getTextLength = () => {
     if (typeof children === 'string') {
@@ -45,17 +55,23 @@ const MagneticLink = ({ children, href, className = '', magneticStrength }) => {
   }, [position]);
 
   return (
-    <Link
-      ref={ref}
-      href={href}
-      prefetch={href?.startsWith('/')}
-      className={`${styles.magneticLink} ${className}`}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      target={href?.startsWith('/') ? '_self' : '_blank'}
+    <motion.div
+      initial={{ opacity: 0, y: y, x: x }}
+      animate={{ opacity: 1, y: 0, x: 0 }}
+      transition={{ delay: 0 + index * 0.1 }}
     >
-      {children}
-    </Link>
+      <Link
+        ref={ref}
+        href={href}
+        prefetch={href?.startsWith('/')}
+        className={`${styles.magneticLink} ${className}`}
+        onMouseMove={isMobile ? undefined : handleMouseMove}
+        onMouseLeave={isMobile ? undefined : handleMouseLeave}
+        target={href?.startsWith('/') ? '_self' : '_blank'}
+      >
+        {children}
+      </Link>
+    </motion.div>
   );
 };
 

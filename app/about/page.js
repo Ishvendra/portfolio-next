@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Head from 'next/head';
 import {
   certifications,
@@ -52,41 +51,6 @@ const AboutPage = () => {
       </Head>
       <main>
         <div className={styles['container-edu']}>
-          <div className={styles.header}>
-            <div className='wrapper' style={{ marginBottom: 10 }}>
-              <div>
-                <Link
-                  href='/'
-                  aria-label='Home'
-                  rel='noopener noreferrer'
-                  className={`${styles.aesthetic} aesthetic-links hover-shadow hover-color hover-font font-color`}
-                >
-                  {['H', 'O', 'M', 'E'].map((char, i) => (
-                    <span key={i} aria-hidden='true' style={{ color: '#fff' }}>
-                      {char}
-                    </span>
-                  ))}
-                </Link>
-              </div>
-            </div>
-            <div className='wrapper' style={{ marginBottom: 10 }}>
-              <div>
-                <Link
-                  href='/project-showcase/01'
-                  aria-label='Projects'
-                  rel='noopener noreferrer'
-                  className={`${styles.aesthetic} aesthetic-links hover-shadow hover-color hover-font font-color`}
-                >
-                  {['P', 'R', 'O', 'J', 'E', 'C', 'T', 'S'].map((char, i) => (
-                    <span key={i} aria-hidden='true' style={{ color: '#fff' }}>
-                      {char}
-                    </span>
-                  ))}
-                </Link>
-              </div>
-            </div>
-          </div>
-
           <section className={styles.section}>
             <h1
               className={clsx(

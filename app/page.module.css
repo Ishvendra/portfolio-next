@@ -4,7 +4,6 @@
   --highlight-color: #d6bb9c;
   --menu-text-color: rgb(236, 236, 236);
 }
-
 .container {
   display: flex;
   flex-direction: row;
@@ -81,7 +80,7 @@
 .socialsNav {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   align-items: flex-start;
 }
 

@@ -1,15 +1,14 @@
-import BlogNavbar from './BlogNavbar';
 import Blob1 from './Blob1';
 import Blob2 from './Blob2';
 import styles from '../styles/blogPage.module.css';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
+import ContactForm from './ContactForm';
 
 const BlogShowcaseClient = ({ blog, children, relatedPosts }) => {
   return (
     <div className={clsx(styles.blogBody)}>
-      <BlogNavbar />
       <div className={styles.header}>
         <h1 className={styles.heading}>
           {blog.title}: <span className={styles.subTitle}>{blog.subTitle}</span>
@@ -66,6 +65,13 @@ const BlogShowcaseClient = ({ blog, children, relatedPosts }) => {
                       </h3>
                     </Link>
                   ))}
+                  <Link
+                    key='complete-blog-list'
+                    href='/blog'
+                    className={styles.blogItem}
+                  >
+                    <h3 className={styles.name}>Complete Blog List →</h3>
+                  </Link>
                 </ul>
               </div>
             </div>
@@ -79,6 +85,8 @@ const BlogShowcaseClient = ({ blog, children, relatedPosts }) => {
           <article className={styles.articleContent}>{children}</article>
         </section>
       </div>
+
+      <ContactForm />
     </div>
   );
 };

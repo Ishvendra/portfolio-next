@@ -25,7 +25,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #0b0b0b;
   background-size: cover;
-  color: #e2e2e2;
+  color: #ffffff;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 @font-face {
@@ -418,7 +422,7 @@ code {
   animation: animateGrain 8s steps(10) infinite;
 }
 .hero.blog-page:after {
-  animation: none; /* disables the grain animation */
+  animation: none;
 }
 
 .hero-2 {
@@ -427,7 +431,7 @@ code {
   justify-content: center;
   align-items: center;
   width: 100%;
-  z-index: -1;
+  z-index: 999;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -442,7 +446,7 @@ code {
   width: 300%;
   position: fixed;
   opacity: 0.05;
-  animation: animateGrain 8s steps(10) infinite;
+  /* animation: animateGrain 8s steps(10) infinite; */
 }
 
 @keyframes animateGrain {
@@ -532,7 +536,7 @@ code {
   display: none !important;
 }
 
-@media (max-width: 786px) {
+@media (max-width: 768px) {
   .social-media-links:hover {
     transform: scale(1);
     font-weight: 700;

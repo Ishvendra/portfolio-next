@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import styles from '../app/page.module.css';
@@ -12,6 +12,17 @@ export default function HamburgerMenu() {
   const toggleMenu = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
 
   return (
     <>
@@ -112,7 +123,7 @@ export default function HamburgerMenu() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2 + index * 0.1 }}
                   >
-                    <div className='wrapper'>
+                    <div>
                       <div className='inner'>
                         <Link
                           href={item.link}

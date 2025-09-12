@@ -79,21 +79,7 @@ const ProjectShowcaseClient = ({ project }) => {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <p
-          className={clsx(
-            styles['project-title'],
-            styles.aesthetic,
-            styles['font-size-title'],
-            styles.reveal
-          )}
-        >
-          {projectIndex + 1}. {project.title}
-        </p>
-        <p className={clsx(styles['aesthetic'], styles['project-date'])}>
-          {project.date}
-        </p>
-      </header>
+      <header className={styles.header}></header>
 
       <div className={styles['content-body']}>
         <nav
@@ -217,43 +203,21 @@ const ProjectShowcaseClient = ({ project }) => {
 
       <footer className={styles.footer}>
         <div className={styles['desktop-footer-links']}>
-          {projectFooter.map((item, index) => (
-            <div className={styles.wrapper} key={index}>
-              <Link
-                href={item.link}
-                rel='noopener noreferrer'
-                aria-label={item.name}
-                className={clsx(
-                  styles['aesthetic'],
-                  styles['aesthetic-links'],
-                  styles['hover-shadow'],
-                  styles['hover-color'],
-                  styles['hover-font'],
-                  styles['font-color']
-                )}
-              >
-                {[...item.name].map((char, i) => (
-                  <span
-                    key={i}
-                    aria-hidden='true'
-                    className={styles['bottom-link-chars']}
-                  >
-                    {char}
-                  </span>
-                ))}
-              </Link>
-            </div>
-          ))}
+          <p
+            className={clsx(
+              styles['project-title'],
+              styles.aesthetic,
+              styles['font-size-title'],
+              styles.reveal
+            )}
+          >
+            {projectIndex + 1}. {project.title}
+          </p>
+          <p className={clsx(styles['aesthetic'], styles['project-date'])}>
+            {project.date}
+          </p>
         </div>
         <div className={styles['mobile-nav-footer']}>
-          <Link href='/' className={styles['mobile-nav-btn']}>
-            Home
-          </Link>
-
-          <Link href='/about' className={styles['mobile-nav-btn']}>
-            Bio
-          </Link>
-
           <Link
             disabled={!prevProject}
             href={prevProject ? `/project-showcase/${prevProject.id}` : '#'}
@@ -263,6 +227,21 @@ const ProjectShowcaseClient = ({ project }) => {
           >
             Prev
           </Link>
+          <span className={styles.footerTitle}>
+            <p
+              className={clsx(
+                styles['project-title'],
+                styles.aesthetic,
+                styles['font-size-title'],
+                styles.reveal
+              )}
+            >
+              {projectIndex + 1}. {project.title}
+            </p>
+            <p className={clsx(styles['aesthetic'], styles['project-date'])}>
+              {project.date}
+            </p>
+          </span>
 
           <Link
             disabled={!nextProject}
