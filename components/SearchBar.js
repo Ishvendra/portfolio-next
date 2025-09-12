@@ -1,22 +1,20 @@
 'use client';
 
 import { useState, useRef, useEffect, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { isUnsupportedBrowser } from '@/utils/isUnsupportedBrowser';
-import useDebounce from '@/app/hooks/useDebounce';
-
 import GooeyFilter from './GooeyFilter';
 import SearchIcon from './icons/SearchIcon';
 import LoadingIcon from './icons/LoadingIcon';
 import CloseIcon from './icons/CloseIcon';
-import { dummyData } from '@/utils/dummyData';
 import '../styles/searchBars.scss';
 import clsx from 'clsx';
 
 const buttonVariants = {
-  initial: { x: 0, width: 200 },
-  step1: { x: 0, width: 200 },
-  step2: { x: -25, width: 200 },
+  initial: { x: 0, width: 250 },
+  step1: { x: 0, width: 250 },
+  step2: { x: -25, width: 250 },
 };
 
 const iconVariants = {
@@ -59,17 +57,15 @@ const getResultItemTransition = (index) => ({
   filter: { ease: 'easeInOut' },
 });
 
-function SearchBar() {
+function SearchBar({ value, onChange, suggestions }) {
   const inputRef = useRef(null);
-
+  const wrapperRef = useRef(null);
+  const router = useRouter();
   const [state, setState] = useState({
     step: 1,
     searchData: [],
-    searchText: '',
     isLoading: false,
   });
-
-  const debouncedSearchText = useDebounce(state.searchText, 500);
   const isUnsupported = useMemo(() => isUnsupportedBrowser(), []);
 
   const handleButtonClick = () => {
@@ -80,15 +76,31 @@ function SearchBar() {
     setState((prevState) => ({
       ...prevState,
       step: 1,
-      searchText: '',
       searchData: [],
       isLoading: false,
     }));
+    onChange('');
   };
 
   const handleSearch = (e) => {
-    setState((prevState) => ({ ...prevState, searchText: e.target.value }));
+    onChange(e.target.value);
   };
+
+  useEffect(() => {
+    setState((prevState) => ({
+      ...prevState,
+      isLoading: true,
+    }));
+
+    const handler = setTimeout(() => {
+      setState((prevState) => ({
+        ...prevState,
+        isLoading: false,
+      }));
+    }, 200);
+
+    return () => clearTimeout(handler);
+  }, [value]);
 
   useEffect(() => {
     if (state.step === 2) {
@@ -98,7 +110,6 @@ function SearchBar() {
       document.body.classList.remove('search-active');
       setState((prevState) => ({
         ...prevState,
-        searchText: '',
         searchData: [],
         isLoading: false,
       }));
@@ -110,51 +121,30 @@ function SearchBar() {
   }, [state.step]);
 
   useEffect(() => {
-    let isCancelled = false;
-
-    if (debouncedSearchText) {
-      setState((prevState) => ({ ...prevState, isLoading: true }));
-
-      const fetchData = async () => {
-        try {
-          await new Promise((resolve) => setTimeout(resolve, 500));
-
-          const filteredData = dummyData.filter((item) =>
-            item
-              .toLowerCase()
-              .includes(debouncedSearchText.trim().toLowerCase())
-          );
-
-          if (!isCancelled) {
-            setState((prevState) => ({
-              ...prevState,
-              searchData: filteredData,
-              isLoading: false,
-            }));
-          }
-        } catch {
-          if (!isCancelled) {
-            setState((prevState) => ({ ...prevState, isLoading: false }));
-          }
+    function handleClickOutside(e) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+        // only close if we're in step 2
+        if (state.step === 2) {
+          handleCloseClick();
         }
-      };
-
-      fetchData();
-    } else {
-      setState((prevState) => ({
-        ...prevState,
-        searchData: [],
-        isLoading: false,
-      }));
+      }
     }
 
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      isCancelled = true;
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [debouncedSearchText]);
+  }, [state.step]);
+
+  const handleClick = (id) => {
+    router.push(`/blog/${id}`);
+  };
 
   return (
-    <div className={clsx('wrapper', isUnsupported && 'no-goo')}>
+    <div
+      ref={wrapperRef}
+      className={clsx('wrapper', isUnsupported && 'no-goo')}
+    >
       <GooeyFilter />
 
       <div className='button-content'>
@@ -176,9 +166,9 @@ function SearchBar() {
               exit={{ scale: 0, opacity: 0 }}
             >
               <AnimatePresence mode='popLayout'>
-                {state.searchData.map((item, index) => (
+                {suggestions?.map((item, index) => (
                   <motion.div
-                    key={item}
+                    key={item?.id}
                     whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                     variants={getResultItemVariants(index, isUnsupported)}
                     initial='initial'
@@ -193,8 +183,11 @@ function SearchBar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: index * 0.12 + 0.3 }}
+                        onClick={() => handleClick(item?.id)}
                       >
-                        {item}
+                        {item?.title?.length > 30
+                          ? `${item.title.slice(0, 30)}...`
+                          : item?.title}
                       </motion.span>
                     </div>
                   </motion.div>
@@ -221,6 +214,7 @@ function SearchBar() {
                 className='search-input'
                 placeholder='Explore...'
                 aria-label='Search input'
+                value={value}
                 onChange={handleSearch}
               />
             )}

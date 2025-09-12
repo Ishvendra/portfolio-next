@@ -76,6 +76,9 @@
 
 .filterContainer {
   width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .filterHeader {
@@ -186,6 +189,70 @@
   border-radius: 20px;
 }
 
+.filterItem {
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+  text-transform: capitalize;
+}
+
+.selectedTag {
+  background-color: rgb(112, 220, 184);
+  cursor: pointer;
+  animation: hueShift 10s linear infinite;
+  /* mix-blend-mode: luminosity; */
+  color: #ffffff;
+  width: fit-content;
+}
+
+.tagRow {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 14px;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: rgba(21, 70, 54, 1);
+  cursor: pointer;
+  animation: hueShift 10s linear infinite;
+  margin-left: 10px;
+  font-weight: 500 !important;
+}
+
+.totalCount {
+  font-size: 1.2rem;
+  color: #888;
+  position: relative;
+  top: 20px;
+  right: 20px;
+  font-weight: 500;
+}
+
+.count {
+  font-size: 0.85rem;
+  color: #434343;
+}
+.tag:hover {
+  font-weight: 400;
+}
+
+.filterItems {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 10px;
+}
+
+.filterItems input[type='checkbox']:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 1200px) {
   .blogBody {
     color: #272727 !important;
@@ -203,9 +270,49 @@
   .filterContainer {
     width: 100%;
     min-height: auto;
-    padding-top: 5px;
     padding-bottom: 5px;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+    gap: 0px;
+    border-top: 1px solid #272727;
   }
+  .filterHeader {
+    border-right: 1px dotted #696969;
+    border-bottom: 1px dotted #696969;
+    padding: 10px;
+    padding-right: 10px;
+  }
+
+  .filterItems input[type='checkbox'] {
+    display: none;
+  }
+
+  .filterItems {
+    flex-direction: row;
+    padding: 8px;
+    width: 100%;
+    overflow-x: auto;
+    border-bottom: 1px dotted #696969;
+    padding: 9px;
+    gap: 10px;
+    color: #565656;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+    padding-right: 2rem;
+  }
+
+  .filterItems::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filterItem {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
   .headerMeta,
   .headerName {
     display: none;
@@ -256,6 +363,18 @@
   .meta {
     order: -1;
     margin-bottom: 5px;
+  }
+
+  .tag {
+    display: none;
+  }
+
+  .totalCount {
+    font-size: 0.8rem;
+    color: #888;
+    position: relative;
+    top: 10px;
+    right: 10px;
   }
 }
 
