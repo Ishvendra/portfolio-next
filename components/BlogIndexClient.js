@@ -96,11 +96,11 @@ export default function BlogIndexClient({ posts }) {
                   {post.title.length > 50
                     ? post.title.slice(0, 50) + '…'
                     : post.title}{' '}
-                  {post.tags?.map((tag) => (
+                  {/* {post.tags?.map((tag) => (
                     <span key={tag} className={styles.tag}>
                       {tag}
                     </span>
-                  ))}
+                  ))} */}
                 </h2>
               </Link>
             ))}
