@@ -66,43 +66,43 @@ export default function RootLayout({ children }) {
       <body
         className={`app-container ${bgClass} text-light ${inconsolata.className} ${nunito.className} ${notoSans.className}`}
       >
-        <CursorBlendLayout>
-          {isHomePage ? (
-            <>
-              <div className='hero-2'>
-                <div className='overlay' />
-              </div>
-              {shouldLoadVideo && (
-                <video
-                  ref={videoRef}
-                  className='bg-video'
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload='none'
-                  onLoadedData={handleVideoLoad}
-                  onCanPlay={handleVideoLoad}
-                >
-                  <source src='/assets/common/home-bg.mp4' type='video/mp4' />
-                </video>
-              )}
-            </>
-          ) : (
-            <>
-              <LayoutNavbar pathname={pathname} />
+        {/* <CursorBlendLayout> */}
+        {isHomePage ? (
+          <>
+            <div className='hero-2'>
+              <div className='overlay' />
+            </div>
+            {/* {shouldLoadVideo && (
+                  <video
+                    ref={videoRef}
+                    className='bg-video'
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload='none'
+                    onLoadedData={handleVideoLoad}
+                    onCanPlay={handleVideoLoad}
+                  >
+                    <source src='/assets/common/home-bg.mp4' type='video/mp4' />
+                  </video>
+                )} */}
+          </>
+        ) : (
+          <>
+            <LayoutNavbar pathname={pathname} />
 
-              <div
-                className={`hero ${
-                  pathname.startsWith('/blog') ? 'blog-page' : ''
-                }`}
-              >
-                <div className='overlay' />
-              </div>
-            </>
-          )}
-          {children}
-        </CursorBlendLayout>
+            <div
+              className={`hero ${
+                pathname.startsWith('/blog') ? 'blog-page' : ''
+              }`}
+            >
+              <div className='overlay' />
+            </div>
+          </>
+        )}
+        {children}
+        {/* </CursorBlendLayout> */}
         <SpeedInsights />
         <Analytics />
       </body>

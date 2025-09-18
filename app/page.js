@@ -9,12 +9,37 @@ import HomeMeta from '@/components/HomeMeta';
 import clsx from 'clsx';
 import ProjectsGrid from '@/components/ProjectsGrid';
 import MagneticLink from '@/components/MagneticLink';
+import LiquidEther from '@/components/LiquidEther';
 
 const Home = () => {
   return (
     <>
       <HomeMeta />
-
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+        }}
+      >
+        <LiquidEther
+          colors={['#FF5429', '#FFA200', '#FDE4AF']}
+          mouseForce={10}
+          cursorSize={45}
+          isViscous={false}
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.1}
+          isBounce={false}
+          autoDemo={true}
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        />
+      </div>
       <div className={styles.container}>
         <div className={styles.mobileOnly}>
           <HamburgerMenu />
