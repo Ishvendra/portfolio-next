@@ -51,19 +51,70 @@ const Home = () => {
                 />
               </div>
 
-              <h1 className={styles.nameText}>I&apos;m Ishvendra</h1>
-              <p className={styles.titleText}>a software developer</p>
+              <h1 className={styles.nameText}>
+                I&apos;m{' '}
+                <div className={styles.nameWrapper}>
+                  <span className={styles.nameHighlight}>Ishvendra</span>
+
+                  <div className={styles.nameTooltip}>
+                    <div className={styles.pronunciation}>
+                      <p>ish-ven-dra</p>
+                    </div>
+                    <hr className={styles.separator} />
+                    <div className={styles.meaningSection}>
+                      <p>
+                        <b className={styles.definitionHeading}>
+                          Meaning as per pop-hinduism:
+                        </b>
+                        <br />
+                        <span className={styles.definition}>
+                          A name combining <i>Īśvara</i> (Lord) and <i>Indra</i>{' '}
+                          (King of Gods), meaning &quot;The Divine Ruler.&quot;
+                        </span>
+                      </p>
+
+                      <p>
+                        <b className={styles.definitionHeading}>
+                          My Interpretation through vedantic lens:
+                        </b>
+                        <br />
+                        <span className={styles.definition}>
+                          To keep one&apos;s understanding (<i>Īśvara</i>) above
+                          the sensual impluses (<i>Indr-iyan</i>).
+                        </span>
+                      </p>
+                    </div>
+                    {/* <a
+                      href='/blog/my-name'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className={styles.readMore}
+                    >
+                      Read more on my blog...
+                    </a> */}
+                  </div>
+                </div>
+              </h1>
             </div>
           </div>
           <div className={clsx(styles.desktopOnly, styles.desktopOnlySection)}>
             <div className={styles.descriptionSection}>
               <p className={styles.descriptionText}>
-                From clean, intuitive interfaces to scalable frontend
-                architectures, I focus on making the complex feel effortless.
+                I&apos;m a software developer, which is mostly a title for
+                someone who likes to figure things out.
               </p>
               <p className={styles.descriptionText}>
-                I like solving problems, questioning defaults, and experimenting
-                with new ideas.
+                I enjoy turning a complicated{' '}
+                <span className={styles.errorSquiggle}>
+                  <span className={styles.alternatingText}>
+                    <span className={styles.right}>m</span>
+                    <span className={styles.left}>e</span>
+                    <span className={styles.right}>s</span>
+                    <span className={styles.left}>s</span>
+                  </span>
+                </span>{' '}
+                into something usable and{' '}
+                <span className={styles.aestheticStars}>clean</span>.
               </p>
             </div>
 
@@ -79,6 +130,7 @@ const Home = () => {
                   key={item.link}
                   index={index}
                   x={-300}
+                  customStyle='yellowLinks'
                 >
                   {item.name}
                 </MagneticLink>

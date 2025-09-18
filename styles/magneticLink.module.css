@@ -10,6 +10,10 @@
   font-weight: 400;
 }
 
+.yellowLinks {
+  color: #ffef8e;
+}
+
 @media (max-width: 768px) {
   .magneticLink {
     margin-bottom: 0;

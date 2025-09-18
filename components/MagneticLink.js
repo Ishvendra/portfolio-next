@@ -8,7 +8,7 @@ import styles from '../styles/magneticLink.module.css';
 const MagneticLink = ({
   children,
   href,
-  className = '',
+  customStyle = '',
   magneticStrength,
   index,
   x = 0,
@@ -17,7 +17,7 @@ const MagneticLink = ({
   const ref = useRef(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-
+  console.log('customStyle', customStyle);
   const getTextLength = () => {
     if (typeof children === 'string') {
       return children.length;
@@ -64,7 +64,7 @@ const MagneticLink = ({
         ref={ref}
         href={href}
         prefetch={href?.startsWith('/')}
-        className={`${styles.magneticLink} ${className}`}
+        className={`${styles.magneticLink} ${styles[customStyle]}`}
         onMouseMove={isMobile ? undefined : handleMouseMove}
         onMouseLeave={isMobile ? undefined : handleMouseLeave}
         target={href?.startsWith('/') ? '_self' : '_blank'}
