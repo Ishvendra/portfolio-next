@@ -141,11 +141,13 @@ Let's break down how this algorithm works through different scenarios.
 When React compares two elements, it first checks their `type`.
 
 - **Different Types:** If the element types are different (e.g., `<div>` changes to `<span>`, or a `<MyComponent>` changes to `<AnotherComponent>`), React will tear down the old component/element and build the new one from scratch.
+
   - The old DOM node is destroyed.
   - Its children are unmounted.
   - The new component/element is mounted, and its entire subtree is built.
   - This is a destructive change, as React assumes entirely different logic.
-  JavaScript
+    JavaScript
+
   ```Javascript
   // Initial render
   <MyComponent /> // Renders a <div>
@@ -156,6 +158,7 @@ When React compares two elements, it first checks their `type`.
 
   // React will destroy the <div> subtree and create the <span> subtree from scratch.
   ```
+
 - **Same Types:** If the element types are the same (e.g., `<div>` remains a `<div>`, or `<MyComponent>` remains a `<MyComponent>`), React preserves the underlying DOM node. It then looks at the attributes (props) of the element.
 
 ---
@@ -243,6 +246,7 @@ If the element types are the same, React looks at the `props` of the old and new
 - It identifies which props have changed their values.
 - Only the DOM attributes corresponding to the changed props are updated on the actual DOM node.
   JavaScript
+
   ```Javascript
   // Initial render
   <button className="active" onClick={handleClick}>Click Me</button>
@@ -332,6 +336,7 @@ Now that we understand how Reconciliation works, let's explore practical strateg
 These are your primary tools for preventing unnecessary re-renders of components and recalculations of expensive values or functions.
 
 - **`React.memo` (for components):** This is a Higher-Order Component (HOC) that memoizes a functional component. React will skip re-rendering the component if its props haven't changed.
+
   ```Javascript
   // ChildComponent will only re-render if its 'data' or 'onClick' props change
   const MyChildComponent = React.memo(function MyChildComponent({ data, onClick }) {
@@ -357,8 +362,11 @@ These are your primary tools for preventing unnecessary re-renders of components
     );
   }
   ```
+
   **Pitfall:** Be careful with non-primitive props (objects, arrays, functions). If `data` or `onClick` are recreated on every parent render (as `data` is in the example above), `React.memo` won't work effectively. This is where `useMemo` and `useCallback` come in.
+
 - **`useMemo` (for values):** Memoizes the _result_ of a function. It only re-calculates the value if one of its dependencies changes.
+
   ```Javascript
   function MyComponent({ list }) {
     // expensiveCalculation will only run if 'list' changes
@@ -371,7 +379,9 @@ These are your primary tools for preventing unnecessary re-renders of components
     );
   }
   ```
+
 - **`useCallback` (for functions):** Memoizes the _function itself_. It returns the same function instance across re-renders unless its dependencies change. This is crucial when passing callback functions to `React.memo`ized child components to prevent unnecessary re-renders of the child.
+
   ```Javascript
   function ParentComponent() {
     const [count, setCount] = useState(0);
@@ -436,4 +446,4 @@ You've learned:
 
 Next time you see your React UI update seamlessly, you'll know exactly what's happening under the hood. Take this knowledge and apply it to write more deliberate, efficient, and ultimately, better React code. Experiment with the profiler in React DevTools to see Reconciliation in action in your own projects!
 
-What aspects of React's internals do you find most fascinating or challenging? Share your thoughts and questions in the comments below!
+What aspects of React's internals do you find most fascinating or challenging? Share your thoughts and questions by reaching out to me below!
