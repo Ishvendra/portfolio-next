@@ -542,3 +542,16 @@ code {
     font-weight: 700;
   }
 }
+
+pre {
+  background-color: #24292e !important;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+pre code {
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+}

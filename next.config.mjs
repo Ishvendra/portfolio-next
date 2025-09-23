@@ -1,5 +1,22 @@
 /** @type {import('next').NextConfig} */
 import createMDX from '@next/mdx';
+import rehypePrettyCode from 'rehype-pretty-code';
+
+/** @type {import('rehype-pretty-code').Options} */
+const options = {
+  theme: 'github-dark',
+  onVisitLine(node) {
+    if (node.children.length === 0) {
+      node.children = [{ type: 'text', value: ' ' }];
+    }
+  },
+  onVisitHighlightedLine(node) {
+    node.properties.className.push('line--highlighted');
+  },
+  onVisitHighlightedWord(node) {
+    node.properties.className = ['word--highlighted'];
+  },
+};
 
 const nextConfig = {
   async headers() {
@@ -38,10 +55,9 @@ const nextConfig = {
 };
 
 const withMDX = createMDX({
-  // Add markdown plugins here, if desired
   options: {
     remarkPlugins: [],
-    rehypePlugins: [],
+    rehypePlugins: [[rehypePrettyCode, options]],
   },
 });
 
