@@ -62,6 +62,10 @@ export default function RootLayout({ children }) {
         <link rel='preconnect' href='https://www.linkedin.com' />
         <link rel='preconnect' href='https://github.com' />
         <link rel='preconnect' href='https://drive.google.com' />
+        <link
+          rel='stylesheet'
+          href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-light.min.css'
+        ></link>
       </head>
       <body
         className={`app-container ${bgClass} text-light ${inconsolata.className} ${nunito.className} ${notoSans.className}`}
