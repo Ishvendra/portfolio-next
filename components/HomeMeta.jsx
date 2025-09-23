@@ -14,7 +14,10 @@ const HomeMeta = () => {
       />
       <meta name='robots' content='index, follow' />
       <link rel='canonical' href='https://ishvendra.in/' />
-
+      <link
+        rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css'
+      ></link>
       <meta
         property='og:title'
         content='Ishvendra | Frontend and Fullstack.in Developer Portfolio'
