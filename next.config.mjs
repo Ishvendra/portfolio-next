@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 import createMDX from '@next/mdx';
 import rehypePrettyCode from 'rehype-pretty-code';
 
@@ -18,6 +17,7 @@ const options = {
   },
 };
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
     return [
