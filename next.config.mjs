@@ -4,7 +4,7 @@ import rehypePrettyCode from 'rehype-pretty-code';
 
 /** @type {import('rehype-pretty-code').Options} */
 const options = {
-  theme: 'github-dark',
+  theme: 'github-light',
   onVisitLine(node) {
     if (node.children.length === 0) {
       node.children = [{ type: 'text', value: ' ' }];
