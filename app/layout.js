@@ -64,7 +64,7 @@ export default function RootLayout({ children }) {
         <link rel='preconnect' href='https://drive.google.com' />
         <link
           rel='stylesheet'
-          href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-light.min.css'
+          href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css'
         ></link>
       </head>
       <body
