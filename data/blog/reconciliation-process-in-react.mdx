@@ -1,3 +1,17 @@
+---
+id: reconciliation-process-in-react
+title: React's Reconciliation
+subTitle: A Deep Dive into the Engine Room 🏎️
+date: '2025-09-02'
+readingTime: '12'
+tags: ['react', 'reconciliation']
+alsoRead:
+  [
+    'how-big-tech-checks-your-username-instantly',
+    'partial-pre-rendering-process-in-next-js',
+  ]
+---
+
 > **TL;DR:** React's magic lies in its ability to efficiently update the UI. This isn't achieved by directly manipulating the browser DOM, but through a sophisticated process called Reconciliation. It involves the Virtual DOM, a diffing algorithm, and strategic updates to minimize costly direct DOM operations. Understanding this process is key to writing performant React applications.
 
 If you've spent any time with React, you've likely marveled at how smoothly it updates your user interface. You change some state, and _poof!_ – the UI magically reflects those changes without a full page reload or the clunkiness of direct DOM manipulation. It feels like magic, doesn't it?
