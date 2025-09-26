@@ -105,7 +105,7 @@ const Home = () => {
                         <br />
                         <span className={styles.definition}>
                           To keep one&apos;s understanding (<i>Īśvara</i>) above
-                          the sensual impluses (<i>Indr-iyan</i>).
+                          the sensual impulses (<i>Indr-iyan</i>).
                         </span>
                       </p>
                     </div>
